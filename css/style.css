@@ -29,3 +29,16 @@
     position: relative;
 }
 
+.menu li a{
+    font-size: 15px;
+    text-decoration: none;
+    padding: 19px 20px;
+    display: block;
+    color: white;
+}
+
+.menu li a:hover{
+    color:black;
+    background-color: white;
+}
+
