@@ -43,5 +43,6 @@ h2{
     display:block;
 }
 .info>#info-div{
-    background-color:rgb(120, 190, 111);
+    background-color:rgb(81, 105, 214);
+    color:white;
 }
