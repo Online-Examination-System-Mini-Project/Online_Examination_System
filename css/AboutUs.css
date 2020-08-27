@@ -7,18 +7,41 @@
     text-align:center;
     margin-bottom: 50px;
 }
+h2{
+    text-align:center;
+    margin-bottom: 50px;
+    color:rgb(120, 112, 226);
+
+}
 .info{
     width: 95%;
-    border: 2px solid gray;
+    text-align: center;
+    justify-content:center;
+    display: flex;
+    border: 2px solid  rgb(228, 222, 222);
     border-radius: 10px;
     margin-left: 30px;
     margin-right: 30px;
-    margin-bottom: 10px;
-    background-color: gray;
-    height:auto;
+    margin-bottom: 30px;
+    background-color: rgb(228, 222, 222);
+    float: left;
 
 }
 .info>img{
     border-radius: 50%;
-    margin-bottom: 10px;
+    display: block;
+    margin-right: 50px;
+}
+.info>#info-div{
+    width:50%;
+    display: block;
+    text-align:left;
+    
+}
+.info>#info-div>p{
+    margin:32px 30px;
+    display:block;
+}
+.info>#info-div{
+    background-color:rgb(120, 190, 111);
 }
