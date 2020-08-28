@@ -6,7 +6,7 @@
 #header{
     width: 100%;
     height: 70px;
-    background-color: grey;
+    background-color: black;
 }
 
 #logo img{
@@ -40,5 +40,19 @@
 .menu li a:hover{
     color:black;
     background-color: white;
+}
+
+#banner{
+    height: 680px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://online-examination-system-mini-project.github.io/Online_Examination_System/images/2.jpg");
+}
+
+#banner h1{
+    position: absolute;
+    top:40px;
+    margin-right: 50px;
 }
 
