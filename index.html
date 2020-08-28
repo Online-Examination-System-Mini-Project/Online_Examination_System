@@ -5,6 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://online-Examination-system-mini-project.github.io/Online_Examination_System/css/style.css"/>
     <title>Online Examination</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+
+        #header{
+            width: 100%;
+            height: 70px;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+        }
+
+        #logo img{
+            width: 80px;
+            height: 65px;
+            border-radius: 50%;
+            margin-top: 3px;
+            margin-left: 50px;
+            float: left;
+        }
+
+        .menu{
+            float: right;
+            margin: 10px;
+        }
+
+        .menu li{
+            float: left;
+            list-style-type: none;
+            margin-right: 20px;
+        }
+
+        .menu li a{
+            font-size: 25px;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            color: white;
+        }
+
+        .menu li a:hover{
+            color:black;
+            background-color: white;
+        }
+
+        #banner{
+            height: 680px;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://online-examination-system-mini-project.github.io/Online_Examination_System/images/2.jpg");
+            position: relative;
+        }
+
+        #text{
+            position: absolute;
+            right: 0;
+            top: 120px;
+            width: 500px;
+
+        }
+
+        #banner h1{
+            color: red;
+            font-size: 50px;
+        }
+
+        #banner p{
+            color: red;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+
+        #banner a{
+            padding: 20px;
+            color:white;
+            background-color: red;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 10px;
+
+        }
+
+        #footer{
+            width: 100%;
+            height: 100px;
+            background-color: rgba(0, 0, 139, 0.178);
+        }
+
+    </style>
 </head>
 <body>
     <div id="contanier">
@@ -20,7 +113,13 @@
         </div>
         <div id="Main">
             <div id="banner">
-                <h1>Your Virtual Examination Hall</h1>
+                <div id="text">
+                    <h1>MEET EXAM-360</h1>
+                    <br>
+                    <p>Your Virtual Examination Hall </p>
+                    <br><br>
+                    <a href="#">Sign up for free</a>
+                </div>
             </div>
         </div>
         <div id="footer">
