@@ -10,3 +10,15 @@
     color: white;
     text-align: center;
 }
+.main{
+    width: 100%;
+}
+.main #left{
+    width: 50%;
+    height: 500px;
+    background-color:lightgoldenrodyellow;
+    margin-left: 5%;
+    padding: 10px;
+    margin-top: 40px;
+    float: left;
+}
