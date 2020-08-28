@@ -22,3 +22,12 @@
     margin-top: 40px;
     float: left;
 }
+.main #left #l1{
+    padding-left: 30px;
+}
+.form{
+    margin-bottom: 15px;
+}
+.#left .form #submit{
+    background-color:orange;
+}
