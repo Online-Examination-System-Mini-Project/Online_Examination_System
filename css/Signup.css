@@ -22,9 +22,9 @@ input:focus{
     background-color:white;
 }
 form{
-    padding: 15px;
+    padding: 25px;
     border: solid gray;
-    width: 400px;
+    width: 450px;
 }
 h1{
     color: darkcyan;
