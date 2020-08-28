@@ -10,12 +10,13 @@
     background-color: grey;
 }
 
-#logo h3{
-    font-size: 40px;
+#logo img{
+    width: 80px;
+    height: 65px;
+    border-radius: 50%;
     margin-top: 3px;
     margin-left: 50px;
     float: left;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 .menu{
