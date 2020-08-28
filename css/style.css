@@ -50,7 +50,8 @@
     background-image: url("https://online-examination-system-mini-project.github.io/Online_Examination_System/images/2.jpg");
 }
 
-#banner h1{
-    
+#footer{
+    width: 100%;
+    height: 100px;
+    background-color: darkblue;
 }
-
