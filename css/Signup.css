@@ -26,6 +26,9 @@ form{
     border: solid gray;
     width: 400px;
 }
+h1{
+    color: darkcyan;
+}
 button{
     background-color:skyblue;
     color: white;
