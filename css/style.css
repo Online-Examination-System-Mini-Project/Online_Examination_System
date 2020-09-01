@@ -93,6 +93,7 @@
     width: 100%;
     height: 300px;
     background-color:darkslategray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #about{
@@ -108,54 +109,38 @@
     color: white;
 }
 
-#categories{
+.categories{
     float: left;
     width: 100px;
     height: 150px;
-    margin: 100px;
+    margin: 40px;
+    padding: 10px;
 }
 
-#categories h3{
+.categories h3{
     color: white;
 }
 
-#categories a{
+.categories a{
     text-decoration: none;
     color: black;
-    font-size: 15px;
+    font-size: 20px;
 }
 
-#links{
+#follow-us{
+    float: left;
     width: 100px;
     height: 150px;
-    float: left;
-    margin: 100px;
+    margin: 40px;
+    padding: 10px;
 }
 
-#links h3{
+#follow-us h3{
     color: white;
 }
 
-#links a{
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
-}
-
-#services{
-    width: 100px;
-    height: 150px;
-    float: left;
-    margin: 100px;
-    margin-right: 100px;
-}
-
-#services h3{
+#follow-us i{
     color: white;
-}
-
-#services a{
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
+    font-size: 30px;
+    padding: 10px;
 }
