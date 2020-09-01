@@ -5,12 +5,13 @@
     display: flex;
     justify-content: center;
     justify-items: center;
-    margin-top: 85px;
+    margin-top: 30px;
 }
 .header h1{
     color: white;
     text-align: center;
     line-height: 80px;
+    font-size: 40px;
 }
 .main{
     width: 100%;
