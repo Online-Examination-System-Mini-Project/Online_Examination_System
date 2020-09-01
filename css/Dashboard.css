@@ -12,7 +12,7 @@
 
 #header h2{
     float: left;
-    padding-left: 20%;
+    padding-left: 25%;
     line-height: 70px;
 }
 
@@ -22,4 +22,45 @@
     font-size: 40px;
     padding-right: 20px;
     color: white;
+}
+
+.side-bar{
+    height: 100vh;
+    width: 20%;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    color: white;
+    background-image:linear-gradient(to right, rgb(21, 208, 241), rgb(76, 45, 252));
+}
+.menu{
+    margin-top: 80px;
+}
+.menu li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+.menu li{
+    padding: 25px;
+    padding-left: 70px;
+}
+
+.menu li a i{
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+#chk{
+    display: none;
+}
+
+.show-btn, .hide-btn{
+    font-size: 30px;
+    padding-left: 230px;
+    position: fixed;
+    display: none;
+    top: 30px;
+
 }
