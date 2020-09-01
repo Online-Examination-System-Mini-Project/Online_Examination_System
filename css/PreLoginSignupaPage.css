@@ -4,9 +4,12 @@ body{
     background-size: cover;
 
 }
+
 hr{
+    text-align: center;
     border-color: 2px solid black;
-    width: 92%;
+    width: 95%;
+    margin-bottom: 10px;
 }
 #content{
     width:25%;
@@ -19,6 +22,9 @@ hr{
     margin-right:50px;
     margin-left: 100px;
     margin-top:300px;
+}
+#content h3{
+    margin:10px auto;
 }
 #content p{
     font-size:18px;
