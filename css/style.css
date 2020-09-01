@@ -126,6 +126,12 @@
     color: black;
     font-size: 20px;
     line-height: 40px;
+    padding: 5px;
+}
+
+.categories a:hover{
+    background-color: white;
+    color: black;
 }
 
 #follow-us{
