@@ -17,6 +17,7 @@ input{
     justify-content:center;
     display: flex;
     padding: 10px;
+    margin-top: 85px;
 }
 input:focus{
     background-color:white;
