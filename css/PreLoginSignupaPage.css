@@ -1,0 +1,41 @@
+body{
+    background-image: url("../images/back2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+hr{
+    border-color: 2px solid black;
+    width: 92%;
+}
+#content{
+    width:25%;
+    height: auto;
+    float:left;
+    background-image: linear-gradient(to right,rgb(153, 216, 252),rgb(129, 129, 202));
+    text-align:center;
+    padding: 10px;
+    border-radius:10px;
+    margin-right:50px;
+    margin-left: 100px;
+    margin-top:300px;
+}
+#content p{
+    font-size:18px;
+    color:rgb(0, 0, 0);
+}
+#content a{
+    text-decoration:none;
+    display: inline-block;
+    padding: 10px;
+    color:white;
+    margin-top:10px;
+    background-color: rgb(22, 221, 55);
+    border-radius:10px;
+    font-size:20px;
+}
+#content a:hover{
+    color:rgb(228, 228, 228);
+    background-color:rgb(19, 19, 223);
+    transition: .5s;
+}
