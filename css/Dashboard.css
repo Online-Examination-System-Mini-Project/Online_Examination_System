@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#header{
+    width: 100%;
+    height: 70px;
+    background-image:linear-gradient(to right, rgb(21, 208, 241), rgb(76, 45, 252),rgb(116, 6, 126));
+
+}
+
+#header h2{
+    float: left;
+    padding-left: 20%;
+    line-height: 70px;
+}
+
+#header i{
+    float: right;
+    line-height: 70px;
+    font-size: 40px;
+    padding-right: 20px;
+    color: white;
+}
