@@ -46,7 +46,9 @@
     background-color: rgb(36, 36, 36);
     border-radius: 10px;
     transition:.4s;
+    border:2px solid white;
 }
+
 
 #banner{
     height: 680px;
