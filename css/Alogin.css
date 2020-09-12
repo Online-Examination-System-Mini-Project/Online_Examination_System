@@ -1,0 +1,66 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    background-image: url("../images/Aback.jpg");
+    background-repeat: none;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+#Login input {
+    border:none;
+    background:none;
+    outline:none;
+    font-size:20px;
+    overflow:hidden;
+    margin-bottom:20px ;
+    border-bottom: 2px solid rgb(16, 216, 16);
+    border-radius: 2px;
+    padding:10px;
+
+    
+}
+#Login{
+    position: absolute;
+    top:45%;
+    left:40%;
+    margin-top:50px;
+  
+   
+}
+#L{
+    position: absolute;
+    top:40%;
+    left:40%;
+    
+
+}
+#L h1{
+    border-bottom: 2px solid rgb(16, 216, 16);
+    border-radius: 2px;
+    padding:10px;
+}
+#btn{
+
+    position: absolute;
+    left:40%;
+    top:72%;
+}
+#btn #button{
+    background:none;
+    outline:none;
+    font-size:20px;
+    border:2px solid green;
+    padding: 5px 10px;
+    width:300px;
+    border-radius: 5px;
+    
+
+
+}
+#btn #button:hover{
+    background-color: rgb(48, 197, 48);
+    transition:.5s;
+}
