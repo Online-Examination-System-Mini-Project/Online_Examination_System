@@ -42,13 +42,8 @@ body{
     border-radius: 2px;
     padding:10px;
 }
-#btn{
 
-    position: absolute;
-    left:40%;
-    top:72%;
-}
-#btn #button{
+#button{
     background:none;
     outline:none;
     font-size:20px;
@@ -61,7 +56,7 @@ body{
 
 
 }
-#btn #button:hover{
+#button:hover{
     background-color: rgb(48, 197, 48);
     transition:.5s;
 }
