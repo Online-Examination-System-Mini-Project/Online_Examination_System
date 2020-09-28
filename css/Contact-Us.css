@@ -26,6 +26,26 @@ input{
     background: whitesmoke;
     width: 100%;
 }
+input:focus{
+    background-color:white;
+}
+form{
+    padding: 25px;
+    border: solid gray;
+    width: 450px;
+}
+button{
+    background-color:skyblue;
+    color: white;
+    padding: 10px;
+    border:none;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover{
+    color: skyblue;
+    background-color:blanchedalmond;
+}
 .main #left{
     width: 100%;
     margin-left: 5%;
