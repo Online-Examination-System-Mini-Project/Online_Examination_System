@@ -14,6 +14,18 @@
 .main{
     width: 100%;
 }
+label{
+    font-weight: bolder;
+    font-size: 20px;
+}
+input{
+    padding: 15px;
+    margin: 5px 10px 20px 0;
+    display: inline-block;
+    border: none;
+    background: whitesmoke;
+    width: 100%;
+}
 .main #left{
     width: 100%;
     margin-left: 5%;
@@ -32,20 +44,4 @@
     border: 0;
     color: white;
     border-radius: 10px;
-}
-.main #right{
-    width: 30%;
-    height: 450px;
-    background-color:pink;
-    margin-left: 10%;
-    padding: 10px;
-    margin-top: 40px;
-    float: left;
-}
-.main #right #r1{
-    padding-left: 20px;
-
-}
-h2{
-    text-align: center;
 }
