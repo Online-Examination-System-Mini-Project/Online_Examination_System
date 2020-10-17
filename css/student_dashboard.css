@@ -66,3 +66,18 @@
 .menu li a:hover{
     background-color: lightgray;
 }
+
+#tag{
+    height: 25px;
+    border: 2px solid black;
+}
+
+#search-btn{
+    color: black;
+    padding: 2px 5px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
