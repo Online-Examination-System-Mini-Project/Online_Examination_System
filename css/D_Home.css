@@ -1,0 +1,41 @@
+table{
+    width: 80%;
+    margin: 10px auto;
+    border: 3px solid #34495e;
+}
+table,tr,td,th{
+    line-height: 50px;
+    border-collapse: collapse;
+    padding: 10px;
+
+}
+tr{
+    border-bottom: 1px solid gray;
+}
+tbody tr:first-child th{
+    text-align: left;
+    font-size: 20px;
+    
+}
+.edit:hover{
+    color: blue;
+}
+.delete:hover{
+    color: red;
+}
+tbody{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+tbody #checked{
+    color: green;
+}
+a{
+    text-decoration: none;
+    color: gray;
+}
+tbody tr:hover{
+    background: lightgray;
+    opacity: 0.8;
+}
