@@ -8,10 +8,24 @@ if(isset($_POST['submit-btn'])){
     $stu_psw = $_POST['psw'];
 
     $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
-
-    $sql = "Insert Into users(fname,lname,userName,email,pasword) VALUES ('{$stu_fname}','{$stu_lname}','{$stu_uname}','{$stu_email}','{$stu_psw}')";
-    $result = mysqli_query($conn,$sql) or die("Query Unsucessful.");
-
+    $not_registered = true;
+    $sql="Select * from users";
+    $result = mysqli_query($conn,$sql) or die("Quesry Uncessfull");
+    while($row=mysqli_fetch_assoc($result)){
+        if($row['email'] == $stu_email){
+            echo "<script>alert('This email is already registered')</script>";
+            $not_registered = false;
+            break;
+        }
+        else{
+            continue;
+        }
+    }
+    if($not_registered){
+        $sql1 = "Insert Into users(fname,lname,userName,email,pasword) VALUES ('{$stu_fname}','{$stu_lname}','{$stu_uname}','{$stu_email}','{$stu_psw}')";
+        $result1 = mysqli_query($conn,$sql1) or die("Query Unsucessful.");
+        echo "<script>alert('Your data is uploaded sucessfully.')</script>";
+    }
     mysqli_close($conn);
 }
 ?>

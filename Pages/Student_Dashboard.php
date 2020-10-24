@@ -16,7 +16,7 @@
                 <div id="logo"><img src="../images/1.png"></div>
                 <div id="right-header1">
                     <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign out</a>
-                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Hello, User</a>
+                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Hello, <?php echo $_GET['username'] ?></a>
                 </div>
             </div>
         </div>
