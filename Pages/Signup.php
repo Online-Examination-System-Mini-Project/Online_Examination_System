@@ -1,4 +1,20 @@
 <!DOCTYPE html>
+<?php
+if(isset($_POST['submit-btn'])){
+    $stu_fname = $_POST['fname'];
+    $stu_lname = $_POST['lname'];
+    $stu_uname = $_POST['uname'];
+    $stu_email = $_POST['email'];
+    $stu_psw = $_POST['psw'];
+
+    $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+
+    $sql = "Insert Into users(fname,lname,userName,email,pasword) VALUES ('{$stu_fname}','{$stu_lname}','{$stu_uname}','{$stu_email}','{$stu_psw}')";
+    $result = mysqli_query($conn,$sql) or die("Query Unsucessful.");
+
+    mysqli_close($conn);
+}
+?>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -21,7 +37,7 @@
             </div>
         </div>
         <div class="middle">
-            <form>
+            <form method="POST">
                 <h1><center>Sign Up</center></h1><br>
                 <hr><br>
                 <h2><center>CREATE AN ACCOUNT</center></h2><br>
@@ -37,7 +53,7 @@
                 <input type="text" placeholder="Enter Password" name="psw" required>
                 <label for="rpsw">Repeat Password:</label>
                 <input type="text" placeholder="Enter Password Again" name="rpsw" required>
-                <button type="submit" class="signup">Create An Account</button><br><br>
+                <button type="submit" class="signup" name="submit-btn" >Create An Account</button><br><br>
                 <h4>Already have an account? <a href="../Pages/Login.html">Sign-in</a></h4>
             </form>
         </div>
