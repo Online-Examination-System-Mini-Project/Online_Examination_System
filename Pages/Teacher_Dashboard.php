@@ -7,117 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/student_dashboard.css" rel="stylesheet">
-    <style>
-        * {
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body{
-    background-color:rgb(240,240,240);
-}
-
-#header {
-    width: 100%;
-    height: 70px;
-    background-image: linear-gradient(to right, rgb(21, 208, 241), rgb(76, 45, 252), rgb(116, 6, 126));
-    position: sticky;
-    top: 0;
-    z-index: 2;
-}
-
-#logo img {
-    width: 80px;
-    height: 65px;
-    border-radius: 50%;
-    margin-top: 3px;
-    margin-left: 50px;
-    float: left;
-}
-
-#right-header1 a{
-    font-size: larger;
-    float: right;
-    color: white;
-    padding: 20px;
-    text-decoration: none;
-}
-
-#nav{
-    width: 100%;
-    height: 50px;
-    border: 1px solid lightgray;
-    background-color:rgb(253,252,252);
-}
-
-#nav h3{
-    float: left;
-    padding: 15px;
-    padding-right: 30px;
-    font-size: 20px;
-}
-
-.menu{
-    float: left;
-    margin-top: 10px;
-    
-}
-
-.menu li {
-    float: left;
-    padding-right: 30px;
-    padding-top: 5px;
-    list-style-type: none;
-    position:relative;
-    line-height:30px;
-}
-
-.menu li a{
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-    font-size: 18px;
-    transition:.4s;
-}
-
-.dropdown-menu{
-    position: absolute;
-    width: 200px;
-    display:none;
-}
-.dropdown-menu li{
-    line-height:40px;
-}
-
-
-.dropdown-menu li a{
-    padding:7px;
-}
-
-.menu li:hover .dropdown-menu{
-    display:block;
-}
-
-.menu li a:hover{
-    background-color: lightgray;
-}
-
-#tag{
-    height: 25px;
-    border: 2px solid black;
-}
-
-#search-btn{
-    color: black;
-    padding: 2px 5px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-    </style>
 </head>
 <body>
     <div id="container">
@@ -138,14 +27,250 @@ body{
                 <li><a href="../Pages/D_Feedback.html"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
                     <ul class="dropdown-menu">
-                        <li><a href="dash.php?q=4">Add Quiz</a></li>
-                        <li><a href="dash.php?q=5">Remove Quiz</a></li>
+                        <li><a href="../Pages/Teacher_Dashboard.php?q=4">Add Quiz</a></li>
+                        <li><a href="../Pages/Teacher_Dashboard.php?q=5">Remove Quiz</a></li>
 	        		</ul>
                 </li>
                 <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a></li>
-                
-                
             </ul>
+        </div>
+        <div id="main-content">
+        <?php
+            if(@$_GET['q']==4 && !(@$_GET['step']) ) {
+            echo ' 
+            <div class="row">
+            <span class="title1" style="margin-left:40%;font-size:30px;"><b>Enter Quiz Details</b></span><br /><br />
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+            <form class="form-horizontal title1" name="form" action="update.php?q=addquiz"  method="POST">
+            <fieldset>
+
+
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="name"></label>  
+            <div class="col-md-12">
+            <input id="name" name="name" placeholder="Enter Quiz title" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+
+
+
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="total"></label>  
+            <div class="col-md-12">
+            <input id="total" name="total" placeholder="Enter total number of questions" class="form-control input-md" type="number">
+                
+            </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="right"></label>  
+            <div class="col-md-12">
+            <input id="right" name="right" placeholder="Enter marks on right answer" class="form-control input-md" min="0" type="number">
+                
+            </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="wrong"></label>  
+            <div class="col-md-12">
+            <input id="wrong" name="wrong" placeholder="Enter minus marks on wrong answer without sign" class="form-control input-md" min="0" type="number">
+                
+            </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="time"></label>  
+            <div class="col-md-12">
+            <input id="time" name="time" placeholder="Enter time limit for test in minute" class="form-control input-md" min="1" type="number">
+                
+            </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="tag"></label>  
+            <div class="col-md-12">
+            <input id="tag" name="tag" placeholder="Enter #tag which is used for searching" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+
+
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="desc"></label>  
+            <div class="col-md-12">
+            <textarea rows="8" cols="8" name="desc" class="form-control" placeholder="Write description here..."></textarea>  
+            </div>
+            </div>
+
+
+            <div class="form-group">
+            <label class="col-md-12 control-label" for=""></label>
+            <div class="col-md-12"> 
+                <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
+            </div>
+            </div>
+
+            </fieldset>
+            </form></div>';
+            }
+            ?>
+
+            <!--add quiz step2 start-->
+            <?php
+            if(@$_GET['q']==4 && (@$_GET['step'])==2 ) {
+            echo ' 
+            <div class="row">
+            <span class="title1" style="margin-left:40%;font-size:30px;"><b>Enter Question Details</b></span><br /><br />
+            <div class="col-md-3"></div><div class="col-md-6"><form class="form-horizontal title1" name="form" action="update.php?q=addqns&n='.@$_GET['n'].'&eid='.@$_GET['eid'].'&ch=4 "  method="POST">
+            <fieldset>
+            ';
+            
+            for($i=1;$i<=@$_GET['n'];$i++)
+            {
+            echo '<b>Question number&nbsp;'.$i.'&nbsp;:</><br /><!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="qns'.$i.' "></label>  
+            <div class="col-md-12">
+            <textarea rows="3" cols="5" name="qns'.$i.'" class="form-control" placeholder="Write question number '.$i.' here..."></textarea>  
+            </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="'.$i.'1"></label>  
+            <div class="col-md-12">
+            <input id="'.$i.'1" name="'.$i.'1" placeholder="Enter option a" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="'.$i.'2"></label>  
+            <div class="col-md-12">
+            <input id="'.$i.'2" name="'.$i.'2" placeholder="Enter option b" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="'.$i.'3"></label>  
+            <div class="col-md-12">
+            <input id="'.$i.'3" name="'.$i.'3" placeholder="Enter option c" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="'.$i.'4"></label>  
+            <div class="col-md-12">
+            <input id="'.$i.'4" name="'.$i.'4" placeholder="Enter option d" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+            <br />
+            <b>Correct answer</b>:<br />
+            <select id="ans'.$i.'" name="ans'.$i.'" placeholder="Choose correct answer " class="form-control input-md" >
+            <option value="a">Select answer for question '.$i.'</option>
+            <option value="a">option a</option>
+            <option value="b">option b</option>
+            <option value="c">option c</option>
+            <option value="d">option d</option> </select><br /><br />'; 
+            }
+                
+            echo '<div class="form-group">
+            <label class="col-md-12 control-label" for=""></label>
+            <div class="col-md-12"> 
+                <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
+            </div>
+            </div>
+
+            </fieldset>
+            </form></div>';
+
+
+
+            }
+            ?><!--add quiz step2 start-->
+            <?php
+            if(@$_GET['q']==4 && (@$_GET['step'])==2 ) {
+            echo ' 
+            <div class="row">
+            <span class="title1" style="margin-left:40%;font-size:30px;"><b>Enter Question Details</b></span><br /><br />
+            <div class="col-md-3"></div><div class="col-md-6"><form class="form-horizontal title1" name="form" action="update.php?q=addqns&n='.@$_GET['n'].'&eid='.@$_GET['eid'].'&ch=4 "  method="POST">
+            <fieldset>
+            ';
+            
+            for($i=1;$i<=@$_GET['n'];$i++)
+            {
+            echo '<b>Question number&nbsp;'.$i.'&nbsp;:</><br /><!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="qns'.$i.' "></label>  
+            <div class="col-md-12">
+            <textarea rows="3" cols="5" name="qns'.$i.'" class="form-control" placeholder="Write question number '.$i.' here..."></textarea>  
+            </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="'.$i.'1"></label>  
+            <div class="col-md-12">
+            <input id="'.$i.'1" name="'.$i.'1" placeholder="Enter option a" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="'.$i.'2"></label>  
+            <div class="col-md-12">
+            <input id="'.$i.'2" name="'.$i.'2" placeholder="Enter option b" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="'.$i.'3"></label>  
+            <div class="col-md-12">
+            <input id="'.$i.'3" name="'.$i.'3" placeholder="Enter option c" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-12 control-label" for="'.$i.'4"></label>  
+            <div class="col-md-12">
+            <input id="'.$i.'4" name="'.$i.'4" placeholder="Enter option d" class="form-control input-md" type="text">
+                
+            </div>
+            </div>
+            <br />
+            <b>Correct answer</b>:<br />
+            <select id="ans'.$i.'" name="ans'.$i.'" placeholder="Choose correct answer " class="form-control input-md" >
+            <option value="a">Select answer for question '.$i.'</option>
+            <option value="a">option a</option>
+            <option value="b">option b</option>
+            <option value="c">option c</option>
+            <option value="d">option d</option> </select><br /><br />'; 
+            }
+                
+            echo '<div class="form-group">
+            <label class="col-md-12 control-label" for=""></label>
+            <div class="col-md-12"> 
+                <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
+            </div>
+            </div>
+
+            </fieldset>
+            </form></div>';
+
+            }
+            ?>
         </div>
     </div>
     
