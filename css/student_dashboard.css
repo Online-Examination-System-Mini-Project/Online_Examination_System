@@ -59,8 +59,14 @@
 .menu li a{
     text-decoration: none;
     color: black;
-    padding: 10px;
+    padding: 15px;
     font-size: 18px;
+}
+
+.dropdown-menu{
+    position: absolute;
+    width: 150px;
+
 }
 
 .menu li a:hover{

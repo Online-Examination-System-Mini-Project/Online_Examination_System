@@ -23,3 +23,5 @@ create table admins(
   email varchar(50) NOT NULL,
   pasword varchar(500) NOT NULL
 );
+
+INSERT INTO `admins` (`adminId`, `adminName`, `email`, `pasword`) VALUES ('1', 'Ramballabh', 'ramavpk@gmail.com', 'ramballabh');
