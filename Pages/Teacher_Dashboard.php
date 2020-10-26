@@ -31,7 +31,7 @@
             <h3>DashBoard</h3>
             <ul class="menu">
                 <li><a href="../Pages/D_Home.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
-                <li><?php if(@$_GET['q']==2) echo'class="active"'; ?><a href="../Pages/Teacher_Dashboard.php?q=2">&nbsp;Ranking</a></li>
+                <li><?php if(@$_GET['q']==2) ?><a href="Teacher_Dashboard.php?q=2">&nbsp;Ranking</a></li>
                 <li><a href="../Pages/D_Feedback.html"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
                     <ul class="dropdown-menu">
@@ -43,11 +43,38 @@
             </ul>
         </div>
         <div id="main-content">
+
+        <?php
+        //ranking start
+        $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+        if(@$_GET['q']== 2) 
+        {
+        $q=mysqli_query($conn,"SELECT * FROM rank ORDER BY score DESC " )or die('Error223');
+        echo  '<div class="panel title"><div class="table-responsive">
+        <table class="table table-striped title1" >
+        <tr style="color:red"><td><b>Rank</b></td><td><b>Name</b></td><td><b>Email</b></td><td><b>Score</b></td></tr>';
+        $c=0;
+        while($row=mysqli_fetch_array($q) )
+        {
+        $e=$row['email'];
+        $s=$row['score'];
+        $q12=mysqli_query($conn,"SELECT * FROM users WHERE email='$e'" )or die('Error231');
+        while($row=mysqli_fetch_array($q12) )
+        {
+        $name=$row['userName'];
+        $c++;
+        echo '<tr><td style="color:#99cc32"><b>'.$c.'</b></td><td>'.$name.'</td><td>'.$e.'</td><td>'.$s.'</td>';
+        }
+        }
+        echo '</table></div></div>';}
+
+        ?>
+
         <?php
             if(@$_GET['q']==4 && !(@$_GET['step']) ) {
             echo ' 
             <div class="row">
-            <span class="title1" style="margin-left:40%;font-size:30px;"><b>Enter Quiz Details</b></span><br /><br />
+            <span class="title1" style="margin-left:40%;font-size:30px;"><b><center>Enter Quiz Details</b><center></span><br /><br />
             <div class="col-md-3"></div>
             <div class="col-md-6">
             <form class="form-horizontal title1" name="form" action="update.php?q=addquiz"  method="POST">
@@ -137,7 +164,7 @@
             if(@$_GET['q']==4 && (@$_GET['step'])==2 ) {
             echo ' 
             <div class="row">
-            <span class="title1" style="margin-left:40%;font-size:30px;"><b>Enter Question Details</b></span><br /><br />
+            <span class="title1" style="margin-left:40%;font-size:30px;"><b><center>Enter Question Details</center></b></span><br /><br />
             <div class="col-md-3"></div><div class="col-md-6"><form class="form-horizontal title1" name="form" action="update.php?q=addqns&n='.@$_GET['n'].'&eid='.@$_GET['eid'].'&ch=4 "  method="POST">
             <fieldset>
             ';
@@ -202,9 +229,6 @@
 
             </fieldset>
             </form></div>';
-
-
-
             }
             ?>
         </div>
