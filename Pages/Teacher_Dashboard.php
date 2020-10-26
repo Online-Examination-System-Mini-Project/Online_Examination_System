@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/student_dashboard.css" rel="stylesheet">
+    <link  rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link  rel="stylesheet" href="../css/bootstrap-theme.min.css"/>    
+    <link rel="stylesheet" href="../css/main.css">
+    <link  rel="stylesheet" href="../css/font.css">
+    <script src="../javascript/jquery.js" type="text/javascript"></script>
+    <script src="../javascript/bootstrap.min.js"  type="text/javascript"></script>
+ 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
     <div id="container">
