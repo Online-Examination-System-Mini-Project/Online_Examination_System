@@ -12,7 +12,8 @@ if(isset($_POST['sbt-btn'])){
         if($row['userName'] == $user_name){
             if($row['pasword'] == $password){
                 $found_data = true;
-                header("Location: http://localhost/Online_Examination_System/Pages/Student_Dashboard.php?username=$user_name");
+                $email = $row['email'];
+                header("Location: http://localhost/Online_Examination_System/Pages/Student_Dashboard.php?username=$user_name&email=$email");
             }
         }
         else{
