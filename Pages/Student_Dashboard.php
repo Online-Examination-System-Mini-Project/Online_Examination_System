@@ -48,7 +48,7 @@ $email = $_GET['email'];
             <ul class="menu">
                 <li <?php if(@$_GET['q']==1) echo'class="active"'; ?>><a href="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=1"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a href="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=2"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;History</a></li>
-                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a></li>
+                <li><a href="Signout.php?q=../index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a></li>
                 <li><input type="text" id="tag" name="tag" size="25"  value="Enter Tag"></li>
                 <li><button id="search-btn">Search</button></li>
             </ul>
