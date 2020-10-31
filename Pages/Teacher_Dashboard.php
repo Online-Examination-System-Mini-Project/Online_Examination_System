@@ -39,7 +39,7 @@
                         <li><a href="../Pages/Teacher_Dashboard.php?q=5">Remove Quiz</a></li>
 	        		</ul>
                 </li>
-                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a></li>
+                <li><a href="Signout.php?q=../index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a></li>
             </ul>
         </div>
         <div id="main-content">
