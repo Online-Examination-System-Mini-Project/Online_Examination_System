@@ -1,4 +1,40 @@
 <!DOCTYPE html>
+<?php
+if(isset($_POST['submit-btn'])){
+    $admin_fname = $_POST['fname'];
+    $admin_lname = $_POST['lname'];
+    $admin_uname = $_POST['uname'];
+    $admin_email = $_POST['email'];
+    $admin_psw = $_POST['psw'];
+
+    $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+    $not_registered = true;
+    $sql="Select * from admins";
+    $result = mysqli_query($conn,$sql) or die("Quesry Uncessfull");
+    $c=0;
+    while($row=mysqli_fetch_assoc($result)){
+        $c=$c+1;
+    }
+    $c=$c+1;
+    while($row=mysqli_fetch_assoc($result)){
+        if($row['email'] == $admin_email){
+            echo "<script>alert('This email is already registered')</script>";
+            $not_registered = false;
+            break;
+        }
+        else{
+            continue;
+        }
+    }
+    if($not_registered){
+        $sql1 = "Insert Into admins(adminId,adminName,email,pasword) VALUES ('{$c}','{$admin_uname}','{$admin_email}','{$admin_psw}')";
+        $result1 = mysqli_query($conn,$sql1) or die("Query Unsucessful.");
+        echo "<script>alert('Your data is uploaded sucessfully.')</script>";
+    }
+    mysqli_close($conn);
+}
+?>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
