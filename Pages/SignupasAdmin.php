@@ -74,7 +74,7 @@ if(isset($_POST['submit-btn'])){
                 <label for="rpsw">Repeat Password:</label>
                 <input type="text" placeholder="Enter Password Again" name="rpsw" required>
                 <button type="submit" class="signup" name="submit-btn" >Create An Account</button><br><br>
-                <h4>Already have an account? <a href="../Pages/Login.html">Sign-in</a></h4>
+                <h4>Already have an account? <a href="../Pages/PreLoginPage.html">Sign-in</a></h4>
             </form>
         </div>
     </body>

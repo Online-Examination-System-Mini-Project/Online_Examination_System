@@ -11,7 +11,7 @@ if(isset($_POST['sbt-btn'])){
         if($row['adminName'] == $admin_name){
             if($row['pasword'] == $password){
                 $found_data = true;
-                header("Location: http://localhost/Online_Examination_System/Pages/Teacher_Dashboard.html");
+                header("Location: http://localhost/Online_Examination_System/Pages/Teacher_Dashboard.php");
             }
         }
         else{
@@ -59,7 +59,7 @@ if(isset($_POST['sbt-btn'])){
                 <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
                 <li><a href="Aboutus.html"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;ABOUT US</a></li>
                 <li><a href="Contact-Us.html"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
-                <li><a href="Signup.php"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a></li>
+                <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a></li>
             </ul>
         </div>
     </div>
