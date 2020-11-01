@@ -179,7 +179,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       }
       $sun=$sun-$s;
       $q=mysqli_query($conn,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
-      header("location:Student_Dashboard.php?username=$user_name&email=$email&q=quiz&step=2&eid=$eid&n=1&t=$t");
+      header("location:Student_Dashboard.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=1&t=$t");
       }
       
     

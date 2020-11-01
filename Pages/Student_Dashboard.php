@@ -14,13 +14,16 @@
     <script src="../javascript/jquery.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"  type="text/javascript"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-
-    
     <!--alert message-->
     <?php if(@$_GET['w'])
     {echo'<script>alert("'.@$_GET['w'].'");</script>';}
     ?>
     <!--alert message end-->
+    <style>
+        #form1{
+            float:left;
+        }
+        </style>
 </head>
 <?php
 $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
@@ -48,12 +51,42 @@ $email = $_GET['email'];
                 <li <?php if(@$_GET['q']==1) echo'class="active"'; ?>><a href="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=1"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a href="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=2"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;History</a></li>
                 <li><a href="Signout.php?q=../index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a></li>
-                <form method="POST" id="form1">
+                <form method="POST" id="form1" action="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=3">
                     <input type="text" id="tag" name="tag" size="25"  value="Enter Tag">&nbsp;&nbsp;
                     <button id="search-btn">Search</button>
                 </form>
             </ul>
         </div>
+
+        <?php if(@$_GET['q']==3){
+            $tag = $_POST['tag'];
+            $result1 = mysqli_query($conn,"SELECT * FROM quiz WHERE tag='$tag'") or die('Error');
+            echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+            <tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
+            $c=1;
+            while($row = mysqli_fetch_array($result1)) {
+                $title = $row['title'];
+                $total = $row['total'];
+                $sahi = $row['sahi'];
+                $time = $row['time'];
+                $eid = $row['eid'];
+            $q12=mysqli_query($conn,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
+            $rowcount=mysqli_num_rows($q12);	
+            if($rowcount == 0){
+                echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
+                <td><b><a href="Student_Dashboard.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
+            }
+            else
+            {
+            echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
+                <td><b><a href="update.php?username='.$user_name.'&email='.$email.'&q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Restart</b></span></a></b></td></tr>';
+            }
+            }
+            $c=0;
+            echo '</table></div></div>';
+            }
+            
+        ?>
         <?php if(@$_GET['q']==1) {
 
         $result = mysqli_query($conn,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
