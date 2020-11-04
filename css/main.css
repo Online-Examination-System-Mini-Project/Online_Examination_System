@@ -28,10 +28,17 @@ min-height:535px;
 	}
 
 .panel{
-border-color:#eee;
-margin:40px;
-padding:20px;
-font: 15px "Century Gothic", "Times Roman", sans-serif;
+    border-color:#eee;
+    margin:40px;
+    padding:20px;
+    font: 15px "Century Gothic", "Times Roman", sans-serif;
+}
+
+#timer{
+    width: 20%;
+    height: 100px;
+    float: right;
+    background-color: yellow;
 }
 
 .title

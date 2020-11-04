@@ -127,7 +127,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       if($sn != $total)
       {
       $sn++;
-      header("location:Student_Dashboard.php?username=$user_name&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total")or die('Error152');
+      header("location:Student_Dashboard.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total")or die('Error152');
       }
       else if( $_SESSION['key']!='sunny7785068889')
       {
@@ -151,11 +151,11 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       $sun=$s+$sun;
       $q=mysqli_query($conn,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
       }
-      header("location:Student_Dashboard.php?username=$user_name&email=$email&q=result&eid=$eid");
+      header("location:Student_Dashboard.php?username=$username&email=$email&q=result&eid=$eid");
       }
       else
       {
-      header("location:Student_Dashboard.php?username=$user_name&email=$email&q=result&eid=$eid");
+      header("location:Student_Dashboard.php?username=$username&email=$email&q=result&eid=$eid");
       }
       }
       

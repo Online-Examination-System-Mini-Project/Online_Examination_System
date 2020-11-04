@@ -23,7 +23,50 @@
         #form1{
             float:left;
         }
-        </style>
+        #timer{
+            width: 10%;
+            height: 50px;
+            float: right;
+            padding: 20px;
+            color:red;
+            font-size:25px;
+            background-color: yellow;
+        }
+    </style>
+    <script language="javascript">
+        var Timer;
+        var TotalSeconds;
+
+        function CreateTimer(TimerID, Time) 
+        {
+            Timer = document.getElementById(TimerID);
+            TotalSeconds = Time;
+            UpdateTimer()
+            window.setTimeout("Tick()", 1000);
+        }
+
+        function Tick() 
+        {
+            TotalSeconds -= 1;
+            if(TotalSeconds ==-1)
+            {
+            document.getElementById("form2").submit();
+            // Show alert Plus redirect any other page
+            }
+        else
+            {
+            UpdateTimer()
+            window.setTimeout("Tick()", 1000);
+            }
+        }
+
+        function UpdateTimer() {
+            Timer.innerHTML = TotalSeconds;
+        }
+
+        
+
+    </script>
 </head>
 <?php
 $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
@@ -122,15 +165,17 @@ $email = $_GET['email'];
         $sn=@$_GET['n'];
         $total=@$_GET['t'];
         $q=mysqli_query($conn,"SELECT * FROM questions WHERE eid='$eid' AND sn='$sn' " );
+        echo '<div id="timer"></div>';
+        echo '<script type="text/javascript">window.onload = CreateTimer("timer", 60);</script>';
         echo '<div class="panel" style="margin:5%">';
         while($row=mysqli_fetch_array($q) )
         {
         $qns=$row['qns'];
         $qid=$row['qid'];
         echo '<b>Question &nbsp;'.$sn.'&nbsp;::<br />'.$qns.'</b><br /><br />';
-        }
+
         $q=mysqli_query($conn,"SELECT * FROM options WHERE qid='$qid' " );
-        echo '<form action="update.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST"  class="form-horizontal">
+        echo '<form action="update.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST" name="form2" id="form2" class="form-horizontal">
         <br />';
 
         while($row=mysqli_fetch_array($q) )
@@ -141,6 +186,7 @@ $email = $_GET['email'];
         }
         echo'<br /><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Submit</button></form></div>';
         //header("location:dash.php?q=4&step=2&eid=$id&n=$total");
+        }
         }
         //result display
         if(@$_GET['q']== 'result' && @$_GET['eid']) 
