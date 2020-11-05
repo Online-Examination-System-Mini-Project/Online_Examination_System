@@ -64,9 +64,9 @@ if(isset($_POST['submit-btn'])){
                 <label for="email">Email:</label>
                 <input type="text" placeholder="Enter Email" name="email" required>
                 <label for="psw">Password:</label>
-                <input type="text" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw" required>
                 <label for="rpsw">Repeat Password:</label>
-                <input type="text" placeholder="Enter Password Again" name="rpsw" required>
+                <input type="password" placeholder="Enter Password Again" name="rpsw" required>
                 <button type="submit" class="signup" name="submit-btn" >Create An Account</button><br><br>
                 <h4>Already have an account? <a href="../Pages/PreLoginPage.html">Sign-in</a></h4>
             </form>

@@ -53,7 +53,7 @@ if(isset($_POST['sbt-btn'])){
                 <label for="uname">Username:</label>
                 <input type="text" placeholder="Enter Username" name="uname" required>
                 <label for="psw">Password:</label>
-                <input type="text" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw" required>
                 <button type="submit" class="login" name="sbt-btn">LOGIN</button><br><br>
                 <h4>Don't have an account? <a href="../Pages/Signup.html">Sign-up</a></h4>
             </form>
