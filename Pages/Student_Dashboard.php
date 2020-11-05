@@ -32,6 +32,20 @@
             font-size:25px;
             background-color: yellow;
         }
+        #nav h3{
+            color:red;
+            line-height:15px;
+            padding-top:0px;
+            font-weight:bold;
+        }
+        #tag{
+            border:3px solid black;
+            height:30px;
+        }
+
+        #search-btn{
+            height:30px
+        }
     </style>
     <script language="javascript">
         var Timer;
@@ -95,8 +109,8 @@ $email = $_GET['email'];
                 <li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a href="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=2"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;History</a></li>
                 <li><a href="Signout.php?q=../index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a></li>
                 <form method="POST" id="form1" action="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=3">
-                    <input type="text" id="tag" name="tag" size="25"  value="Enter Tag">&nbsp;&nbsp;
-                    <button id="search-btn">Search</button>
+                    <input type="text" id="tag" name="tag" size="20"  placeholder="Enter Tag">&nbsp;&nbsp;
+                    <button id="search-btn"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search</button>
                 </form>
             </ul>
         </div>
