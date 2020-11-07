@@ -78,8 +78,11 @@
             Timer.innerHTML = TotalSeconds;
         }
 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
         
-
     </script>
 </head>
 <?php
@@ -186,6 +189,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         $q=mysqli_query($conn,"SELECT * FROM questions WHERE eid='$eid' AND sn='$sn' " );
         echo '<div id="timer"></div>';
         echo '<script type="text/javascript">window.onload = CreateTimer("timer", 60);</script>';
+        echo '';
         echo '<div class="panel" style="margin:5%">';
         while($row=mysqli_fetch_array($q) )
         {
