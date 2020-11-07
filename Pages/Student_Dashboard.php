@@ -84,13 +84,18 @@
 </head>
 <?php
 $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
-$user_name=$_GET['username'];
-$email = $_GET['email'];
 ?>
 <body>
     <?php
     $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
     session_start();
+    if(!(isset($_SESSION['email']))){
+        header("location:../index.html");
+    }
+    else{
+        $email=$_SESSION['email'];
+        $user_name=$_SESSION['username'];
+    }
     ?>
     <div id="container">
         <div id="header">

@@ -17,6 +17,16 @@
 
 </head>
 <body>
+    <?php
+    $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+    session_start();
+    if(!(isset($_SESSION['email']))){
+        header("location:../index.html");
+    }
+    else{
+        $email=$_SESSION['email'];
+    }
+    ?>
     <div id="container">
         <div id="header">
             <div id="header1">

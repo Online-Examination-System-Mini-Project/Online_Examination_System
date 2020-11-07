@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 if(isset($_POST['sbt-btn'])){
+    session_start();
     $admin_name = $_POST['admin_name'];
     $password = $_POST['password'];
     $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
@@ -11,6 +12,8 @@ if(isset($_POST['sbt-btn'])){
         if($row['adminName'] == $admin_name){
             if($row['pasword'] == $password){
                 $found_data = true;
+                $email=$row['email'];
+                $_SESSION["email"] = $email;
                 header("Location: http://localhost/Online_Examination_System/Pages/Teacher_Dashboard.php");
             }
         }
