@@ -50,7 +50,7 @@
             <ul class="menu">
                 <li><a href="../Pages/#"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li><?php if(@$_GET['q']==2) ?><a href="Teacher_Dashboard.php?q=2">&nbsp;Ranking</a></li>
-                <li><a href="../Pages/D_Feedback.html"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
+                <li><?php if(@$_GET['q']==3) ?><a href="Teacher_Dashboard.php?q=3"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
                     <ul class="dropdown-menu">
                         <li><a href="../Pages/Teacher_Dashboard.php?q=4">Add Quiz</a></li>

@@ -53,6 +53,7 @@ CREATE TABLE `feedback` (
   `id` text NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `remail` varchar(50)NOT NULL,
   `subject` varchar(500) NOT NULL,
   `feedback` varchar(500) NOT NULL,
   `date` date NOT NULL,

@@ -6,13 +6,29 @@ if(isset($_POST['submit-btn'])){
     $email=$_POST['mailid'];
     $remail=$_POST['rmailid'];
     $feedback=$_POST['subject'];
+    $date=date("Y-m-d");
+    $time=date("h:i:sa");
     $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+    $sql="Select * from feedback";
+    $result = mysqli_query($conn,$sql) or die("Quesry Uncessfull");
+    $c=0;
+    while($row=mysqli_fetch_assoc($result)){
+        $c=$c+1;
+    }
+    $c=$c+1;
+    $sql1="Insert Into feedback(id,name,email,remail,subject,feedback,date,time) VALUES ('{$c}','{$name}','{$email}','{$remail}','{$subject}','{$feedback}','{$date}','{$time}')";
+    $result1=mysqli_query($conn,$sql1) or die("Quesry Uncessfull");
 }
     ?>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script>
+        function response(){
+            alert("Thank you for your valuable feedback!");
+        }
+        </script>
     <style>
         * {
             box-sizing: border-box;
@@ -176,7 +192,7 @@ if(isset($_POST['submit-btn'])){
                     <label for="remail">Receiver's Mail Id</label>
                 </div>
                 <div class="col-75">
-                    <input type="remail" id="remail" name="rmailid" placeholder="Receiver's mail id..">
+                    <input type="email" id="remail" name="rmailid" placeholder="Receiver's mail id..">
                 </div>
             </div>
             <div class="row">
@@ -205,7 +221,7 @@ if(isset($_POST['submit-btn'])){
                 </div>
             </div>
             <div class="row">
-                <input type="submit" value="Submit" name="submit-btn">
+                <input type="submit" value="Submit" name="submit-btn" onclick="response()">
             </div>
         </form>
     </div>
