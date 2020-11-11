@@ -14,6 +14,14 @@
     <script src="../javascript/jquery.js" type="text/javascript"></script>
     <script src="../javascript/bootstrap.min.js"  type="text/javascript"></script>
  	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <style>
+        #nav h3{
+            color:red;
+            line-height:15px;
+            padding-top:0px;
+            font-weight:bold;
+        }
+    </style>
 
 </head>
 <body>
@@ -40,7 +48,7 @@
         <div id="nav">
             <h3>DashBoard</h3>
             <ul class="menu">
-                <li><a href="../Pages/D_Home.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+                <li><a href="../Pages/#"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li><?php if(@$_GET['q']==2) ?><a href="Teacher_Dashboard.php?q=2">&nbsp;Ranking</a></li>
                 <li><a href="../Pages/D_Feedback.html"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        *{
+    padding:0;
+    margin: 0;
+}
+
+#header{
+    width: 100%;
+    height: 70px;
+    background-image:linear-gradient(to right, rgb(21, 208, 241), rgb(76, 45, 252),rgb(116, 6, 126));
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+#logo img{
+    width: 80px;
+    height: 65px;
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-left: 50px;
+    float: left;
+}
+
+.menu{
+    float: right;
+    margin: 10px;
+}
+
+.menu li{
+    float: left;
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.menu li a{
+    font-size: 25px;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    color: white;
+    text-decoration-style: solid;
+}
+
+.menu li a:hover{
+    color:rgb(255, 255, 255);
+    background-color: rgb(36, 36, 36);
+    border-radius: 10px;
+    transition:.4s;
+    border:2px solid white;
+}
+
+#main-content{
+    width: 80%;
+    height: 300px;
+    border: 2px solid black;
+    margin: auto;
+}
+
+#feed-form h1{
+    display: flex;
+    justify-content: center;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="logo"><img src="../images/1.png"></div>
+                <ul class="menu">
+                    <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
+                    <li><a href="Contact-Us.html"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
+                    <li><a href="PreLoginPage.html"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;LOGIN</a></li>
+                    <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="main-content">
+            <form id="feed-form" name="feed-form">
+                <h1>Feedback</h1>
+                <label>Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name">
+                <label>Subject</label>
+                <input type="text" name="sub" id="sub" placeholder="Enter your subject">
+                <label>Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email-id">
+                <textarea name="feed" id="feed" placeholder="Write Description here ..."></textarea>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
