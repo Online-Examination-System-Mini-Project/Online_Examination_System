@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+if(isset($_POST['submit-btn'])){
+    $name=$_POST['firstname'];
+    $subject=$_POST['subject1'];
+    $email=$_POST['mailid'];
+    $remail=$_POST['rmailid'];
+    $feedback=$_POST['subject'];
+    $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+}
+    ?>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -121,7 +131,6 @@
         /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
     </style>
 </head>
-
 <body>
     <div class="container">
         <div id="header">
@@ -137,7 +146,7 @@
     </div>
     <div id="main-content">
         <h2>FEED BACK FORM</h2>
-        <form>
+        <form method="POST">
             <div class="row">
                 <div class="col-25">
                     <label for="fname">First Name</label>
@@ -148,10 +157,10 @@
             </div>
             <div class="row">
                 <div class="col-25">
-                    <label for="lname">Last Name</label>
+                    <label for="subject1">Subject</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    <input type="text" id="subject1" name="subject1" placeholder="Enter subject..">
                 </div>
             </div>
             <div class="row">
@@ -160,6 +169,14 @@
                 </div>
                 <div class="col-75">
                     <input type="email" id="email" name="mailid" placeholder="Your mail id..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="remail">Receiver's Mail Id</label>
+                </div>
+                <div class="col-75">
+                    <input type="remail" id="remail" name="rmailid" placeholder="Receiver's mail id..">
                 </div>
             </div>
             <div class="row">
@@ -188,7 +205,7 @@
                 </div>
             </div>
             <div class="row">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" name="submit-btn">
             </div>
         </form>
     </div>
