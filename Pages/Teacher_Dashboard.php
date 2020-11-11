@@ -48,7 +48,7 @@
         <div id="nav">
             <h3>DashBoard</h3>
             <ul class="menu">
-                <li><a href="../Pages/#"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+                <li><a href="Teacher_Dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li><?php if(@$_GET['q']==2) ?><a href="Teacher_Dashboard.php?q=2">&nbsp;Ranking</a></li>
                 <li><?php if(@$_GET['q']==3) ?><a href="Teacher_Dashboard.php?q=3"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
@@ -86,6 +86,27 @@
         }
         echo '</table></div></div>';}
 
+        ?>
+
+        <!--feedback start-->
+        <?php if(@$_GET['q']==3) {
+        $result = mysqli_query($conn,"SELECT * FROM feedback where remail='$email' ORDER BY feedback.date DESC") or die('Error');
+        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+        <tr><td><b>S.N.</b></td><td><b>Subject</b></td><td><b>Email</b></td><td><b>Date</b></td><td><b>Time</b></td><td><b>By</b></td><td></td><td></td></tr>';
+        $c=1;
+        while($row = mysqli_fetch_array($result)) {
+            $date = $row['date'];
+            $date= date("d-m-Y",strtotime($date));
+            $time = $row['time'];
+            $subject = $row['subject'];
+            $name = $row['name'];
+            $email = $row['email'];
+            $id = $row['id'];
+            echo '<tr><td>'.$c++.'</td>';
+            echo '<td>'.$subject.'</td><td>'.$email.'</td><td>'.$date.'</td><td>'.$time.'</td><td>'.$name.'</td></tr>';
+        }
+        echo '</table></div></div>';
+        }
         ?>
 
         <?php
@@ -176,6 +197,27 @@
             </form></div>';
             }
             ?>
+            <!--remove quiz-->
+            <?php if(@$_GET['q']==5) {
+
+            $result = mysqli_query($conn,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+            echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+            <tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
+            $c=1;
+            while($row = mysqli_fetch_array($result)) {
+                $title = $row['title'];
+                $total = $row['total'];
+                $sahi = $row['sahi'];
+                $time = $row['time'];
+                $eid = $row['eid'];
+                echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
+                <td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+            }
+            $c=0;
+            echo '</table></div></div>';
+            }
+            ?>
+
 
             <!--add quiz step2 start-->
             <?php

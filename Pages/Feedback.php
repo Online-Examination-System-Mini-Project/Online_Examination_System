@@ -7,7 +7,7 @@ if(isset($_POST['submit-btn'])){
     $remail=$_POST['rmailid'];
     $feedback=$_POST['subject'];
     $date=date("Y-m-d");
-    $time=date("h:i:sa");
+    $time=date("h:i:s a");
     $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
     $sql="Select * from feedback";
     $result = mysqli_query($conn,$sql) or die("Quesry Uncessfull");

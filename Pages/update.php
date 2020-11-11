@@ -64,6 +64,22 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
     header("Location: Teacher_Dashboard.php?q=0");
     }
 
+    //remove quiz
+      if(@$_GET['q']== 'rmquiz') {
+      $eid=@$_GET['eid'];
+      $result = mysqli_query($conn,"SELECT * FROM questions WHERE eid='$eid' ") or die('Error');
+      while($row = mysqli_fetch_array($result)) {
+        $qid = $row['qid'];
+      $r1 = mysqli_query($conn,"DELETE FROM options WHERE qid='$qid'") or die('Error');
+      $r2 = mysqli_query($conn,"DELETE FROM answer WHERE qid='$qid' ") or die('Error');
+      }
+      $r3 = mysqli_query($conn,"DELETE FROM questions WHERE eid='$eid' ") or die('Error');
+      $r4 = mysqli_query($conn,"DELETE FROM quiz WHERE eid='$eid' ") or die('Error');
+      $r4 = mysqli_query($conn,"DELETE FROM history WHERE eid='$eid' ") or die('Error');
+      
+      header("location:Teacher_Dashboard.php?q=5");
+      }
+  
     
     //quiz start
     if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {
