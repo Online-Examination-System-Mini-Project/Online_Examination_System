@@ -4,7 +4,7 @@ if(isset($_POST['submit-btn'])){
     $name=$_POST['firstname'];
     $subject=$_POST['subject1'];
     $email=$_POST['mailid'];
-    $remail=$_POST['rmailid'];
+    $phone=$_POST['phone'];
     $feedback=$_POST['subject'];
     $date=date("Y-m-d");
     $time=date("h:i:s a");
@@ -16,7 +16,7 @@ if(isset($_POST['submit-btn'])){
         $c=$c+1;
     }
     $c=$c+1;
-    $sql1="Insert Into feedback(id,name,email,remail,subject,feedback,date,time) VALUES ('{$c}','{$name}','{$email}','{$remail}','{$subject}','{$feedback}','{$date}','{$time}')";
+    $sql1="Insert Into feedback(id,name,email,phone,subject,feedback,date,time) VALUES ('{$c}','{$name}','{$email}','{$phone}','{$subject}','{$feedback}','{$date}','{$time}')";
     $result1=mysqli_query($conn,$sql1) or die("Quesry Uncessfull");
 }
     ?>
@@ -81,6 +81,16 @@ if(isset($_POST['submit-btn'])){
         }
 
         input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgb(70, 68, 68);
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        input[type=tel],
         select,
         textarea {
             width: 100%;
@@ -161,7 +171,7 @@ if(isset($_POST['submit-btn'])){
         </div>
     </div>
     <div id="main-content">
-        <h2>FEED BACK FORM</h2>
+        <h2>FEEDBACK FORM</h2>
         <form method="POST">
             <div class="row">
                 <div class="col-25">
@@ -189,10 +199,10 @@ if(isset($_POST['submit-btn'])){
             </div>
             <div class="row">
                 <div class="col-25">
-                    <label for="remail">Receiver's Mail Id</label>
+                    <label for="phone">Phone number</label>
                 </div>
                 <div class="col-75">
-                    <input type="email" id="remail" name="rmailid" placeholder="Receiver's mail id..">
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number..">
                 </div>
             </div>
             <div class="row">
