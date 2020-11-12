@@ -34,9 +34,9 @@ create table developers(
 );
 
 INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('1', 'Ramballabh', 'ramballabh.agrawal_cs18@gla.ac.in', 'ramballabh');
-INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('1', 'Gopal Tiwari', 'gopal.tiwari_cs18@gla.ac.in', 'gopaltiwari');
-INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('1', 'Vineet Agrawal', 'vineet.agrawal_cs18@gla.ac.in', 'vineetagrawal');
-INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('1', 'Ayush goyal', 'ayush.goyal_cs18@gla.ac.in', 'ayushgoyal');
+INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('2', 'Gopal Tiwari', 'gopal.tiwari_cs18@gla.ac.in', 'gopaltiwari');
+INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('3', 'Vineet Agrawal', 'vineet.agrawal_cs18@gla.ac.in', 'vineetagrawal');
+INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('4', 'Ayush goyal', 'ayush.goyal_cs18@gla.ac.in', 'ayushgoyal');
 
 
 
