@@ -40,7 +40,7 @@
         <div id="nav">
             <h3>DashBoard</h3>
             <ul class="menu">
-                <li><a href="SuperAdmin_Dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+                <li><?php if(@$_GET['q']==2) ?><a href="SuperAdmin_Dashboard.php?q=0"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li><?php if(@$_GET['q']==2) ?><a href="SuperAdmin_Dashboard.php?q=2">&nbsp;Ranking</a></li>
                 <li><?php if(@$_GET['q']==3) ?><a href="SuperAdmin_Dashboard.php?q=3"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
@@ -54,6 +54,21 @@
         </div>
         <div id="main-content">
 
+        <?php if(@$_GET['q']==0) {
+        $result = mysqli_query($conn,"SELECT * FROM admins") or die('Error');
+        echo '<center><h2 style="color:blue;"><b>List of Admins<b></h2><center>';
+        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+        <tr><td><b>S.N.</b></td><td><b>Name</b></td><td><b>Email</b></td></tr>';
+        while($row = mysqli_fetch_array($result)) {
+            $id = $row['adminId'];
+            $name = $row['adminName'];
+            $email = $row['email'];
+            echo '<tr><td>'.$id.'</td>';
+            echo '<td>'.$name.'</td><td>'.$email.'</td><td><b><a href="update.php?q=rmadmin&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+        }
+        echo '</table></div></div>';
+        }
+        ?>
         <?php
         //ranking start
         $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
