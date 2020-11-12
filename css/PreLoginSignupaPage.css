@@ -33,7 +33,11 @@ hr{
 #content a{
     text-decoration:none;
     display: inline-block;
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    
     color:white;
     margin-top:10px;
     background-color: rgb(22, 221, 55);
