@@ -5,16 +5,16 @@ if(isset($_POST['sbt-btn'])){
     $admin_name = $_POST['admin_name'];
     $password = $_POST['password'];
     $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
-    $sql="Select * from admins";
+    $sql="Select * from superadmin";
     $result = mysqli_query($conn,$sql) or die("Quesry Uncessfull");
     $found_data = false;
     while($row=mysqli_fetch_assoc($result)){
-        if($row['adminName'] == $admin_name){
+        if($row['sadminName'] == $admin_name){
             if($row['pasword'] == $password){
                 $found_data = true;
                 $email=$row['email'];
                 $_SESSION["email"] = $email;
-                header("Location: http://localhost/Online_Examination_System/Pages/Teacher_Dashboard.php");
+                header("Location: http://localhost/Online_Examination_System/Pages/SuperAdmin_Dashboard.php");
             }
         }
         else{
