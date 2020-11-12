@@ -26,17 +26,17 @@ create table admins(
 
 INSERT INTO `admins` (`adminId`, `adminName`, `email`, `pasword`) VALUES ('1', 'Ramballabh', 'ramavpk@gmail.com', 'ramballabh');
 
-create table developers(
-  devId int NOT NULL,
-  devName varchar(30) NOT NULL,
+create table superadmin(
+  sadminId int NOT NULL,
+  sadminName varchar(30) NOT NULL,
   email varchar(50) NOT NULL,
   pasword varchar(500) NOT NULL
 );
 
-INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('1', 'Ramballabh', 'ramballabh.agrawal_cs18@gla.ac.in', 'ramballabh');
-INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('2', 'Gopal Tiwari', 'gopal.tiwari_cs18@gla.ac.in', 'gopaltiwari');
-INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('3', 'Vineet Agrawal', 'vineet.agrawal_cs18@gla.ac.in', 'vineetagrawal');
-INSERT INTO `developers` (`devId`, `devName`, `email`, `pasword`) VALUES ('4', 'Ayush goyal', 'ayush.goyal_cs18@gla.ac.in', 'ayushgoyal');
+INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES ('1', 'Ramballabh', 'ramballabh.agrawal_cs18@gla.ac.in', 'ramballabh');
+INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES ('2', 'Gopal Tiwari', 'gopal.tiwari_cs18@gla.ac.in', 'gopaltiwari');
+INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES ('3', 'Vineet Agrawal', 'vineet.agrawal_cs18@gla.ac.in', 'vineetagrawal');
+INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES ('4', 'Ayush goyal', 'ayush.goyal_cs18@gla.ac.in', 'ayushgoyal');
 
 
 
