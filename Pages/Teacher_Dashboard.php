@@ -42,7 +42,6 @@
             <ul class="menu">
                 <li><a href="Teacher_Dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li><?php if(@$_GET['q']==2) ?><a href="Teacher_Dashboard.php?q=2">&nbsp;Ranking</a></li>
-                <li><?php if(@$_GET['q']==3) ?><a href="Teacher_Dashboard.php?q=3"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
                     <ul class="dropdown-menu">
                         <li><a href="../Pages/Teacher_Dashboard.php?q=4">Add Quiz</a></li>
@@ -79,28 +78,7 @@
         echo '</table></div></div>';}
 
         ?>
-
-        <!--feedback start-->
-        <?php if(@$_GET['q']==3) {
-        $result = mysqli_query($conn,"SELECT * FROM feedback where remail='$email' ORDER BY feedback.date DESC") or die('Error');
-        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-        <tr><td><b>S.N.</b></td><td><b>Subject</b></td><td><b>Email</b></td><td><b>Date</b></td><td><b>Time</b></td><td><b>By</b></td><td></td><td></td></tr>';
-        $c=1;
-        while($row = mysqli_fetch_array($result)) {
-            $date = $row['date'];
-            $date= date("d-m-Y",strtotime($date));
-            $time = $row['time'];
-            $subject = $row['subject'];
-            $name = $row['name'];
-            $email = $row['email'];
-            $id = $row['id'];
-            echo '<tr><td>'.$c++.'</td>';
-            echo '<td>'.$subject.'</td><td>'.$email.'</td><td>'.$date.'</td><td>'.$time.'</td><td>'.$name.'</td></tr>';
-        }
-        echo '</table></div></div>';
-        }
-        ?>
-
+        
         <?php
             if(@$_GET['q']==4 && !(@$_GET['step']) ) {
             echo ' 
