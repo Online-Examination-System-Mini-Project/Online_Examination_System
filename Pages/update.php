@@ -79,7 +79,13 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       
       header("location:Teacher_Dashboard.php?q=5");
       }
-  
+
+      //remove admin
+      if(@$_GET['q']== 'rmadmin') {
+      $id=@$_GET['id'];
+      $result=mysqli_query($conn,"DELETE FROM admins WHERE adminId='$id'") or die('Error');
+      header("location:SuperAdmin_Dashboard.php?q=0");
+      }
     
     //quiz start
     if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {

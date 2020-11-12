@@ -37,8 +37,7 @@ INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES (
 INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES ('2', 'Gopal Tiwari', 'gopal.tiwari_cs18@gla.ac.in', 'gopaltiwari');
 INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES ('3', 'Vineet Agrawal', 'vineet.agrawal_cs18@gla.ac.in', 'vineetagrawal');
 INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES ('4', 'Ayush goyal', 'ayush.goyal_cs18@gla.ac.in', 'ayushgoyal');
-
-
+INSERT INTO `superadmin` (`sadminId`, `sadminName`, `email`, `pasword`) VALUES ('5', 'Naveen Gupta', 'naveen.gupta_cs18@gla.ac.in', 'naveengupta');
 
 CREATE TABLE `quiz` ( `eid` text NOT NULL, `title` varchar(100) NOT NULL, `sahi` int(11) NOT NULL, `wrong` int(11) NOT NULL, `total` int(11) NOT NULL, `time` bigint(20) NOT NULL, `intro` text NOT NULL, `tag` varchar(100) NOT NULL, `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
