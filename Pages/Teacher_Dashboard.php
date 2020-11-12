@@ -20,10 +20,12 @@
             line-height:15px;
             padding-top:0px;
             font-weight:bold;
+            float:left;
         }
         .menu{
             float: left;
-            margin-top: 0px;
+            margin-top: 10px;
+            margin-left:15px;
         }
     </style>
 

@@ -37,7 +37,15 @@
             line-height:15px;
             padding-top:0px;
             font-weight:bold;
+            float:left;
         }
+
+        .menu{
+            float: left;
+            margin-top: 10px;
+            margin-left:15px;
+        }
+
         #tag{
             border:3px solid black;
             height:30px;
@@ -137,7 +145,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
             $q12=mysqli_query($conn,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
             $rowcount=mysqli_num_rows($q12);	
             if($rowcount == 0){
-                echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
+                echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
                 <td><b><a href="Student_Dashboard.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
             }
             else
@@ -166,13 +174,13 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         $q12=mysqli_query($conn,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
         $rowcount=mysqli_num_rows($q12);	
         if($rowcount == 0){
-            echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
-            <td><b><a href="Student_Dashboard.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
+            echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
+            <td><b><a href="Student_Dashboard.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
         }
         else
         {
-        echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
-            <td><b><a href="update.php?username='.$user_name.'&email='.$email.'&q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Restart</b></span></a></b></td></tr>';
+        echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
+            <td><b><a href="update.php?username='.$user_name.'&email='.$email.'&q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Restart</b></span></a></b></td></tr>';
         }
         }
         $c=0;
@@ -185,9 +193,10 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         $eid=@$_GET['eid'];
         $sn=@$_GET['n'];
         $total=@$_GET['t'];
+        $time=$_GET['time'];
         $q=mysqli_query($conn,"SELECT * FROM questions WHERE eid='$eid' AND sn='$sn' " );
         echo '<div id="timer"></div>';
-        echo '<script type="text/javascript">window.onload = CreateTimer("timer", 60);</script>';
+        echo '<script type="text/javascript">window.onload = CreateTimer("timer", '.$time.');</script>';
         echo '<div class="panel" style="margin:5%">';
         while($row=mysqli_fetch_array($q) )
         {
@@ -196,7 +205,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         echo '<b>Question &nbsp;'.$sn.'&nbsp;::<br />'.$qns.'</b><br /><br />';
 
         $q=mysqli_query($conn,"SELECT * FROM options WHERE qid='$qid' " );
-        echo '<form action="update.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST" name="form2" id="form2" class="form-horizontal">
+        echo '<form action="update.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'&time='.$time.'" method="POST" name="form2" id="form2" class="form-horizontal">
         <br />';
 
         while($row=mysqli_fetch_array($q) )
@@ -206,7 +215,6 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br />';
         }
         echo'<br /><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Submit</button></form></div>';
-        //header("location:dash.php?q=4&step=2&eid=$id&n=$total");
         }
         }
         //result display
