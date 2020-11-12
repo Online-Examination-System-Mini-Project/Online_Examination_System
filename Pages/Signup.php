@@ -62,7 +62,7 @@ if(isset($_POST['submit-btn'])){
                 <label for="uname">Username:</label>
                 <input type="text" placeholder="Enter Username" name="uname" required>
                 <label for="email">Email:</label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <input type="email" placeholder="Enter Email" name="email" required>
                 <label for="psw">Password:</label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
                 <label for="rpsw">Repeat Password:</label>
