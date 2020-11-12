@@ -19,42 +19,7 @@
     {echo'<script>alert("'.@$_GET['w'].'");</script>';}
     ?>
     <!--alert message end-->
-    <style>
-        #form1{
-            float:left;
-        }
-        #timer{
-            width: 10%;
-            height: 50px;
-            float: right;
-            padding: 20px;
-            color:red;
-            font-size:25px;
-            background-color: yellow;
-        }
-        #nav h3{
-            color:red;
-            line-height:15px;
-            padding-top:0px;
-            font-weight:bold;
-            float:left;
-        }
-
-        .menu{
-            float: left;
-            margin-top: 10px;
-            margin-left:15px;
-        }
-
-        #tag{
-            border:3px solid black;
-            height:30px;
-        }
-
-        #search-btn{
-            height:30px
-        }
-    </style>
+    
     <script language="javascript">
         var Timer;
         var TotalSeconds;

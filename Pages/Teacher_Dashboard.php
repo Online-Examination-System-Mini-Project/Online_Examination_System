@@ -14,20 +14,6 @@
     <script src="../javascript/jquery.js" type="text/javascript"></script>
     <script src="../javascript/bootstrap.min.js"  type="text/javascript"></script>
  	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <style>
-        #nav h3{
-            color:red;
-            line-height:15px;
-            padding-top:0px;
-            font-weight:bold;
-            float:left;
-        }
-        .menu{
-            float: left;
-            margin-top: 10px;
-            margin-left:15px;
-        }
-    </style>
 
 </head>
 <body>
