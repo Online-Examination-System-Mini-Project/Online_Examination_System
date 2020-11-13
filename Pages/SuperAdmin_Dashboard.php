@@ -43,7 +43,7 @@
                 <li><?php if(@$_GET['q']==0) ?><a href="SuperAdmin_Dashboard.php?q=0"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li><?php if(@$_GET['q']==1) ?><a href="SuperAdmin_Dashboard.php?q=1"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a></li>
                 <li><?php if(@$_GET['q']==2) ?><a href="SuperAdmin_Dashboard.php?q=2">&nbsp;Ranking</a></li>
-                <li><?php if(@$_GET['q']==4) ?><a href="SuperAdmin_Dashboard.php?q=4"><i class="fa fa-align-justify" aria-hidden="true"></i>&nbsp;Quizzes</a></li>
+                <li><?php if(@$_GET['q']==6) ?><a href="SuperAdmin_Dashboard.php?q=6"><i class="fa fa-align-justify" aria-hidden="true"></i>&nbsp;Quizzes</a></li>
                 <li><?php if(@$_GET['q']==3) ?><a href="SuperAdmin_Dashboard.php?q=3"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
                     <ul class="dropdown-menu">
@@ -92,7 +92,7 @@
         ?>
 
         <!--Quiz-->
-        <?php if(@$_GET['q']==4) {
+        <?php if(@$_GET['q']==6) {
         $result = mysqli_query($conn,"SELECT * FROM quiz") or die('Error');
         echo '<center><h2 style="color:blue;"><b>List of Quizzes<b></h2><center>';
         echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
@@ -110,8 +110,9 @@
         echo '</table></div></div>';
         }
         ?>
+
+        <!--ranking start-->
         <?php
-        //ranking start
         $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
         if(@$_GET['q']== 2) 
         {
