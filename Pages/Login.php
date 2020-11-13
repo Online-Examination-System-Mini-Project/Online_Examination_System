@@ -48,7 +48,6 @@ if(isset($_POST['sbt-btn'])){
             if(illegal.test(nameV)){
                 alert("Please Enter Valid Username");
                 document.getElementById("username").style.color = "red";
-                button.disabled = true;
                 return false;
             }
             else if( nameV.length ==0){
@@ -56,12 +55,6 @@ if(isset($_POST['sbt-btn'])){
             }
             else{
                 document.getElementById("username").style.color = "blue";
-                if(pas ==1){
-                    un =1;
-                    button.disabled = false;
-                    return true;
-
-                }
             
             }
             
