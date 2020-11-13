@@ -56,6 +56,15 @@ if(isset($_POST['submit-btn'])){
             }
             return true;
         }
+        function EmailChecker(){
+              var inputE= document.getElementById("mail").value;
+              var emailSyntax= /^.+@gmail.com$/;
+              if(emailSyntax.test(inputE)){
+              }
+              else{
+                alert("Please Enter valid Email");
+              }
+            }
     </script>
 </head>
 <body>
@@ -66,7 +75,7 @@ if(isset($_POST['submit-btn'])){
                 <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
                 <li><a href="Aboutus.html"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;ABOUT US</a></li>
                 <li><a href="Contact-Us.html"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
-                <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a></li>
+                <li><a href="PreLoginPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;LOGIN</a></li>
             </ul>
         </div>
     </div>
@@ -86,6 +95,10 @@ if(isset($_POST['submit-btn'])){
             <i class="fa fa-user" aria-hidden="true"></i>
             <input type="text" placeholder="Username" id="name" name="uname" onblur="check()" required>
         </div>
+        <div id = "Email">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <input type="email" placeholder="Email" id="mail" name="email" onblur="EmailChecker()" required>
+        </div>
         <div id="pass">
             <i class="fa fa-lock" aria-hidden="true"></i>
             <input type="password" placeholder="Password" id="passL" name="psw" onblur ="checkP()" required><br>
@@ -94,7 +107,7 @@ if(isset($_POST['submit-btn'])){
             <i class="fa fa-lock" aria-hidden="true"></i>
             <input type="password" placeholder="Repeat Password" id="rpassL" name="rpsw" onblur ="checkP()" required><br><br>
         </div>
-        <button type="submit" id="button" name="sbt-btn">SIGN UP</button>
+        <button type="submit" id="button" name="submit-btn">SIGN UP</button>
     </form>
        
 </body>
