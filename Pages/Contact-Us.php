@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+if(isset($_POST['submit'])){
+
+
+    mail("ramavpk@gmail.com", $_POST['name'].$_POST['username'],
+    
+    
+    $_POST['entry']. "From: $_POST['email']");
+    
+    }
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +43,7 @@
                 <h3>Ready To get Started?</h3>
                 <p>Please Use the form below to Contact-Us.We will never spam you,or sell your email to third party.</p>
                 <br>
-                <form class="form">
+                <form class="form" method="POST">
 
                     <label for="username">Username :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" id="username" name="username" placeholder="Abhay singh" required><br><br><br>
@@ -46,7 +57,7 @@
                     <textarea type="text" id="msg" name="entry" rows="5" cols="95" placeholder="&nbsp;Write Your Message here" required></textarea><br><br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Send Message" id="submit">
+                    <input type="submit" value="Send Message" id="submit" name="submit">
                     <br><br>
                 </form>
                 </div>
@@ -57,12 +68,12 @@
             <h2>Communication Details :</h2><br>
             <p>Feel free to get in touch with our team!</p><br>
             <h3>Write to us :</h3><br>
-            <p>abhayroy@gmail.com</p><br>
+            <p>ramavpk@gmail.com</p><br>
             <h3>Talk to Experts :</h3><br>
-            <p>+919999999999</p><br>
-            <h3>Reaches to Us</h3><br>
-            <p>Kanna wali Chowk</p><br>
-            <p>mathura-245875</p>
+            <p>+916398470556</p><br>
+            <h3>Reaches to Goverdhan (Mathura)</h3><br>
+            <p>Near Union Bank</p><br>
+            <p>Goverdhan-281502</p>
             <br><br>
 
             <h2>Thanks to Visit the Site</h2>

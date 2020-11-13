@@ -19,7 +19,17 @@
     {echo'<script>alert("'.@$_GET['w'].'");</script>';}
     ?>
     <!--alert message end-->
-    
+    <style>
+    #timer{
+        border:5px solid green;
+        height:80px;
+        width:150px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border-radius:45%;
+    }
+    </style>
     <script language="javascript">
         var Timer;
         var TotalSeconds;
