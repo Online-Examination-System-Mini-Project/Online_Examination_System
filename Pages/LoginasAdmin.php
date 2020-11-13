@@ -47,8 +47,8 @@ if(isset($_POST['sbt-btn'])){
         }
         function checkP(){
             var nameP = document.getElementById("passL").value;
-            if( nameP.length != 0 && name.length<8){
-                alert("Password Length requires is atleast 8");
+            if( nameP.length<8 && nameP.length!=0){
+                alert("Password Length required is atleast 8");
                 return false;
             }
             return true;
@@ -77,7 +77,7 @@ if(isset($_POST['sbt-btn'])){
         </div>
         <div id="pass">
             <i class="fa fa-lock" aria-hidden="true"></i>
-            <input type="password" placeholder="Password" id="passL" name="password" onblur ="checkp()" required><br><br>
+            <input type="password" placeholder="Password" id="passL" name="password" onblur ="checkP()" required><br><br>
         </div>
         <button type="submit" id="button" name="sbt-btn">LOGIN</button>
     </form>
