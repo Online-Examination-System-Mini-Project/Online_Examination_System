@@ -56,6 +56,9 @@ if(isset($_POST['submit-btn'])){
                 alert("Please Enter Valid First Name");
                 return false;
             }
+            else if( namev.length == 0){
+                return false;
+            }
             else{
                 document.getElementById("firstname").style.color = "blue";
                 if(ln == 1 && un == 1 && em == 1 && ps == 1 && rps == 1){
@@ -75,6 +78,9 @@ if(isset($_POST['submit-btn'])){
                 btn.disabled = true;
                 alert("Please Enter Valid Last Name");
                 ln = 0;
+                return false;
+            }
+            else if( namev.length == 0){
                 return false;
             }
             else{
@@ -103,6 +109,9 @@ if(isset($_POST['submit-btn'])){
                 un = 0;
                 return false;
             }
+            else if( nameV.length == 0){
+                return false;
+            }
             else{
                 document.getElementById("username").style.color = "blue";
                 
@@ -122,6 +131,9 @@ if(isset($_POST['submit-btn'])){
                 btn.disabled = true;
                 alert("Password Length required is atleast 8");
                 ps = 0;
+                return false;
+            }
+            else if( nameP.length == 0){
                 return false;
             }
             else{
@@ -150,6 +162,9 @@ if(isset($_POST['submit-btn'])){
                 }
         
             }
+            else if( inputE.length == 0){
+                return false;
+            }
             else{
                 document.getElementById("Email").style.color = "red";
                 btn.disabled = true;
@@ -166,6 +181,9 @@ if(isset($_POST['submit-btn'])){
                 btn.disabled = true;
                 alert("Password not matched");
                 rps = 0;
+                return false;
+            }
+            else if( pass2.length == 0){
                 return false;
             }
             else{
