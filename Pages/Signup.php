@@ -30,46 +30,72 @@ if(isset($_POST['submit-btn'])){
 }
 ?>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/style.css"/>
-        <link rel="stylesheet" href="../css/Signup.css"/>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <title>SignUp </title>
-    </head>
-    <body>
-        <div id="contanier">
-            <div id="header">
-                <div id="logo"><img src="../images/1.png"></div>
-                <ul class="menu">
-                    <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALogin</title>
+    <link rel="stylesheet" href="../css/Alogin.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+       
+        function check(){
+            var nameV = document.getElementById("name").value;
+            var illegal = /\W/;
+            if(illegal.test(nameV)){
+                alert("Please Enter Valid Username");
+                return false;
+            }
+            return true;
+        }
+        function checkP(){
+            var nameP = document.getElementById("passL").value;
+            if( nameP.length<8 && nameP.length!=0){
+                alert("Password Length required is atleast 8");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="contanier">
+        <div id="header">
+            <div id="logo"><img src="../images/1.png"></div>
+            <ul class="menu">
+                <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
                 <li><a href="Aboutus.html"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;ABOUT US</a></li>
                 <li><a href="Contact-Us.html"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
-                <li><a href="PreLoginPage.html"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;LOGIN</a></li>
-                </ul>
-            </div>
+                <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a></li>
+            </ul>
         </div>
-        <div class="middle">
-            <form method="POST">
-                <h1><center>Sign Up</center></h1><br>
-                <hr><br>
-                <h2><center>CREATE AN ACCOUNT</center></h2><br>
-                <label for="fname">First Name:</label>
-                <input type="text" placeholder="Enter First Name" name="fname" required>
-                <label for="lname">Last Name:</label>
-                <input type="text" placeholder="Enter Last Name" name="lname" required>
-                <label for="uname">Username:</label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                <label for="email">Email:</label>
-                <input type="email" placeholder="Enter Email" name="email" required>
-                <label for="psw">Password:</label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                <label for="rpsw">Repeat Password:</label>
-                <input type="password" placeholder="Enter Password Again" name="rpsw" required>
-                <button type="submit" class="signup" name="submit-btn" >Create An Account</button><br><br>
-                <h4>Already have an account? <a href="../Pages/PreLoginPage.html">Sign-in</a></h4>
-            </form>
+    </div>
+    <div id="L">
+        <h1>Sign up</h1>
+    </div>
+    <form id="Login" method="POST">
+        <div id="fname">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" placeholder="First Name" id="fname" name="fname" onblur="check()" required>
         </div>
-    </body>
+        <div id="lname">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" placeholder="Last Name" id="lname" name="lname" onblur="check()" required>
+        </div>
+        <div id="username">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" placeholder="Username" id="name" name="uname" onblur="check()" required>
+        </div>
+        <div id="pass">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" placeholder="Password" id="passL" name="psw" onblur ="checkP()" required><br>
+        </div>
+        <div id="rpass">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" placeholder="Repeat Password" id="rpassL" name="rpsw" onblur ="checkP()" required><br><br>
+        </div>
+        <button type="submit" id="button" name="sbt-btn">SIGN UP</button>
+    </form>
+       
+</body>
 </html>
