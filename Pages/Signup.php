@@ -33,7 +33,7 @@ if(isset($_POST['submit-btn'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALogin</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="../css/Asignup.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -44,6 +44,17 @@ if(isset($_POST['submit-btn'])){
             var wrongsyn2 = /^.*[0-9]+.*$/;
             if( wrongsyn1.test(namev) || wrongsyn2.test(namev)){
                 alert("Please Enter Valid First Name");
+                return false;
+            }
+            return true;
+
+        }
+        function checkLName(){
+            var namev = document.getElementById("lname").value;
+            var wrongsyn1 = /\W/;
+            var wrongsyn2 = /^.*[0-9]+.*$/;
+            if( wrongsyn1.test(namev) || wrongsyn2.test(namev)){
+                alert("Please Enter Valid Last Name");
                 return false;
             }
             return true;
@@ -99,7 +110,7 @@ if(isset($_POST['submit-btn'])){
         </div>
         <div id="lastname">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <input type="text" placeholder="Last Name" id="lname" name="lname" onblur="check()" required>
+            <input type="text" placeholder="Last Name" id="lname" name="lname" onblur="checkLName()" required>
         </div>
         <div id="username">
             <i class="fa fa-user" aria-hidden="true"></i>
