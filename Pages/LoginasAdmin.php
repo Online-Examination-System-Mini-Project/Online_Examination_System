@@ -73,7 +73,7 @@ if(isset($_POST['sbt-btn'])){
     <form id="Login" method="POST">
         <div id="username">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <input type="text" placeholder="Username" id="name" name="admin_name" onSumbit="check()" required>
+            <input type="text" placeholder="Username" id="name" name="admin_name" onblur="check()" required>
         </div>
         <div id="pass">
             <i class="fa fa-lock" aria-hidden="true"></i>
