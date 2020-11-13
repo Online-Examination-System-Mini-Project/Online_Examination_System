@@ -86,6 +86,13 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       $result=mysqli_query($conn,"DELETE FROM admins WHERE adminId='$id'") or die('Error');
       header("location:SuperAdmin_Dashboard.php?q=0");
       }
+
+      //remove user
+      if(@$_GET['q']== 'rmuser') {
+        $email=@$_GET['email'];
+        $result=mysqli_query($conn,"DELETE FROM users WHERE email='$email'") or die('Error');
+        header("location:SuperAdmin_Dashboard.php?q=1");
+      }
     
     //quiz start
     if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {

@@ -43,6 +43,7 @@
                 <li><?php if(@$_GET['q']==0) ?><a href="SuperAdmin_Dashboard.php?q=0"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li><?php if(@$_GET['q']==1) ?><a href="SuperAdmin_Dashboard.php?q=1"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a></li>
                 <li><?php if(@$_GET['q']==2) ?><a href="SuperAdmin_Dashboard.php?q=2">&nbsp;Ranking</a></li>
+                <li><?php if(@$_GET['q']==4) ?><a href="SuperAdmin_Dashboard.php?q=4"><i class="fa fa-align-justify" aria-hidden="true"></i>&nbsp;Quizzes</a></li>
                 <li><?php if(@$_GET['q']==3) ?><a href="SuperAdmin_Dashboard.php?q=3"><i class="material-icons" aria-hidden="true">feedback</i>&nbsp;Feedback</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
                     <ul class="dropdown-menu">
@@ -67,6 +68,44 @@
             $email = $row['email'];
             echo '<tr><td>'.$id.'</td>';
             echo '<td>'.$name.'</td><td>'.$email.'</td><td><b><a href="update.php?q=rmadmin&id='.$id.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+        }
+        echo '</table></div></div>';
+        }
+        ?>
+
+        <!--Users-->
+        <?php if(@$_GET['q']==1) {
+        $result = mysqli_query($conn,"SELECT * FROM users") or die('Error');
+        echo '<center><h2 style="color:blue;"><b>List of Users<b></h2><center>';
+        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+        <tr><td><b>S.N.</b></td><td><b>Name</b></td><td><b>Email</b></td><td></td><td></td></tr>';
+        $c=0;
+        while($row = mysqli_fetch_array($result)) {
+            $name = $row['userName'];
+            $email = $row['email'];
+            echo '<tr><td>'.$c.'</td>';
+            echo '<td>'.$name.'</td><td>'.$email.'</td><td><b><a href="update.php?q=rmuser&email='.$email.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+            $c++;
+        }
+        echo '</table></div></div>';
+        }
+        ?>
+
+        <!--Quiz-->
+        <?php if(@$_GET['q']==4) {
+        $result = mysqli_query($conn,"SELECT * FROM quiz") or die('Error');
+        echo '<center><h2 style="color:blue;"><b>List of Quizzes<b></h2><center>';
+        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+        <tr><td><b>S.N.</b></td><td><b>Title</b></td><td><b>Total Marks</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td></tr>';
+        while($row = mysqli_fetch_array($result)) {
+            $eid=$row['eid'];
+            $title = $row['title'];
+            $total_marks = $row['total'];
+            $time = $row['time'];
+            $tag=$row['tag'];
+            $date=$row['date'];
+            echo '<tr><td>'.$eid.'</td>';
+            echo '<td>'.$title.'</td><td>'.$total_marks.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
         }
         echo '</table></div></div>';
         }

@@ -44,7 +44,7 @@
                 <li><?php if(@$_GET['q']==2) ?><a href="Teacher_Dashboard.php?q=2">&nbsp;Ranking</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
                     <ul class="dropdown-menu">
-                        <li><a href="../Pages/Teacher_Dashboard.php?q=4">Add Quiz</a></li>
+                        <li><a href="../Pages/Teacher_Dashboard.php?q=4"><i class="fa fa-align-justify" aria-hidden="true"></i>&nbsp;Add Quiz</a></li>
                         <li><a href="../Pages/Teacher_Dashboard.php?q=5">Remove Quiz</a></li>
 	        		</ul>
                 </li>
@@ -78,7 +78,7 @@
         echo '</table></div></div>';}
 
         ?>
-        
+
         <?php
             if(@$_GET['q']==4 && !(@$_GET['step']) ) {
             echo ' 
