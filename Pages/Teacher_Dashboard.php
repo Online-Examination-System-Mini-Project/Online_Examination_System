@@ -105,7 +105,7 @@
             <div class="form-group">
             <label class="col-md-12 control-label" for="total"></label>  
             <div class="col-md-12">
-            <input id="total" name="total" placeholder="Enter total number of questions" class="form-control input-md" type="number">
+            <input id="total" name="total" placeholder="Enter total number of questions" class="form-control input-md" min="0" type="number">
                 
             </div>
             </div>

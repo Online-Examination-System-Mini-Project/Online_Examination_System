@@ -166,7 +166,7 @@
             <span class="title1" style="margin-left:40%;font-size:30px;"><b><center>Enter Quiz Details</b><center></span><br /><br />
             <div class="col-md-3"></div>
             <div class="col-md-6">
-            <form class="form-horizontal title1" name="form" action="update.php?q=addquiz"  method="POST">
+            <form class="form-horizontal title1" name="form" action="update.php?q=addquizbysuperadmin"  method="POST">
             <fieldset>
 
 
@@ -185,7 +185,7 @@
             <div class="form-group">
             <label class="col-md-12 control-label" for="total"></label>  
             <div class="col-md-12">
-            <input id="total" name="total" placeholder="Enter total number of questions" class="form-control input-md" type="number">
+            <input id="total" name="total" placeholder="Enter total number of questions" class="form-control input-md" min="0" type="number">
                 
             </div>
             </div>
@@ -212,7 +212,7 @@
             <div class="form-group">
             <label class="col-md-12 control-label" for="time"></label>  
             <div class="col-md-12">
-            <input id="time" name="time" placeholder="Enter time limit for test in secand for each question" class="form-control input-md" min="1" type="number">
+            <input id="time" name="time" placeholder="Enter time limit for test in second for each question" class="form-control input-md" min="1" type="number">
                 
             </div>
             </div>
@@ -275,7 +275,7 @@
             echo ' 
             <div class="row">
             <span class="title1" style="margin-left:40%;font-size:30px;"><b><center>Enter Question Details</center></b></span><br /><br />
-            <div class="col-md-3"></div><div class="col-md-6"><form class="form-horizontal title1" name="form" action="update.php?q=addqns&n='.@$_GET['n'].'&eid='.@$_GET['eid'].'&ch=4 "  method="POST">
+            <div class="col-md-3"></div><div class="col-md-6"><form class="form-horizontal title1" name="form" action="update.php?q=addqnsbysuperadmin&n='.@$_GET['n'].'&eid='.@$_GET['eid'].'&ch=4 "  method="POST">
             <fieldset>
             ';
             
