@@ -51,7 +51,7 @@ if(isset($_POST['submit-btn'])){
                 <ul class="menu">
                     <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
                 <li><a href="Aboutus.html"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;ABOUT US</a></li>
-                <li><a href="Contact-Us.html"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
+                <li><a href="Contact-Us.php"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
                 <li><a href="PreLoginPage.html"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;LOGIN</a></li>
                 </ul>
             </div>
