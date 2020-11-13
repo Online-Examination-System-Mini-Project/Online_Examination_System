@@ -38,60 +38,144 @@ if(isset($_POST['submit-btn'])){
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
+        var fn = 1;
+        var ln = 1;
+        var un = 1;
+        var em = 1;
+        var ps = 1;
+        var rps = 1;
         function checkFName(){
+            var btn = document.getElementById("button");
             var namev = document.getElementById("fname").value;
             var wrongsyn1 = /\W/;
             var wrongsyn2 = /^.*[0-9]+.*$/;
             if( wrongsyn1.test(namev) || wrongsyn2.test(namev)){
+                document.getElementById("firstname").style.color = "red";
+                btn.disabled = true;
+                fn = 0;
                 alert("Please Enter Valid First Name");
                 return false;
             }
+            else{
+                document.getElementById("firstname").style.color = "blue";
+                if(ln == 1 && un == 1 && em == 1 && ps == 1 && rps == 1){
+                    fn = 1;
+                    btn.disabled = false;
+                }
+            }
             return true;
-
         }
         function checkLName(){
+            var btn = document.getElementById("button");
             var namev = document.getElementById("lname").value;
             var wrongsyn1 = /\W/;
             var wrongsyn2 = /^.*[0-9]+.*$/;
             if( wrongsyn1.test(namev) || wrongsyn2.test(namev)){
+                document.getElementById("lastname").style.color = "red";
+                btn.disabled = true;
                 alert("Please Enter Valid Last Name");
+                ln = 0;
                 return false;
+            }
+            else{
+                document.getElementById("lastname").style.color = "blue";
+                
+                if(fn == 1 && un == 1 && em == 1 && ps == 1 && rps == 1){
+                    ln = 1;
+                    
+                    btn.disabled = false;
+                }
+                
+
             }
             return true;
 
         }
         function check(){
+            var btn = document.getElementById("button");
             var nameV = document.getElementById("name").value;
             var illegal = /\W/;
             if(illegal.test(nameV) ){
+                document.getElementById("username").style.color = "red";
+                btn.disabled = true;
                 alert("Please Enter Valid Username");
+                
+                un = 0;
                 return false;
+            }
+            else{
+                document.getElementById("username").style.color = "blue";
+                
+                if(ln == 1 && fn == 1 && em == 1 && ps == 1 && rps == 1){
+                    un = 1;
+                    
+                    btn.disabled = false;
+                }
             }
             return true;
         }
         function checkP(){
+            var btn = document.getElementById("button");
             var nameP = document.getElementById("passL").value;
             if( nameP.length<8 && nameP.length!=0){
+                document.getElementById("pass").style.color = "red";
+                btn.disabled = true;
                 alert("Password Length required is atleast 8");
+                ps = 0;
                 return false;
+            }
+            else{
+                document.getElementById("pass").style.color = "blue";
+                
+                if(ln == 1 && un == 1 && em == 1 && fn == 1 && rps == 1){
+                    ps = 1;
+                    
+                    btn.disabled = false;
+                }
             }
             return true;
         }
         function EmailChecker(){
-              var inputE= document.getElementById("mail").value;
-              var emailSyntax= /^.+@gmail.com$/;
-              if(emailSyntax.test(inputE)){
-              }
-              else{
+            var btn = document.getElementById("button");
+            var inputE= document.getElementById("mail").value;
+            var emailSyntax= /^.+@gmail.com$/;
+            if(emailSyntax.test(inputE)){
+                document.getElementById("Email").style.color = "blue";
+               
+                
+                if(ln == 1 && un == 1 && rps == 1 && ps == 1 && fn == 1){
+                    em = 1;
+                    
+                    btn.disabled = false;
+                }
+        
+            }
+            else{
+                document.getElementById("Email").style.color = "red";
+                btn.disabled = true;
+                em = 0;
                 alert("Please Enter valid Email");
             }
          }
         function confirmPass(){
+            var btn = document.getElementById("button");
             var pass1 = document.getElementById("passL").value;
             var pass2 = document.getElementById("rpassL").value;
             if( pass1 != pass2){
+                document.getElementById("rpass").style.color = "red";
+                btn.disabled = true;
                 alert("Password not matched");
+                rps = 0;
                 return false;
+            }
+            else{
+                document.getElementById("rpass").style.color = "blue";
+                
+                if(ln == 1 && un == 1 && em == 1 && ps == 1 && fn == 1){
+                    rps = 1;
+                    
+                    btn.disabled = false;
+                }
             }
             return true;
         }
