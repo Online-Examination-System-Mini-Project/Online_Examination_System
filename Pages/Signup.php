@@ -84,8 +84,18 @@ if(isset($_POST['submit-btn'])){
               }
               else{
                 alert("Please Enter valid Email");
-              }
             }
+         }
+        function confirmPass(){
+            var pass1 = document.getElementById("passL").value;
+            var pass2 = document.getElementById("rpassL").value;
+            if( pass1 != pass2){
+                alert("Password not matched");
+                return false;
+            }
+            return true;
+        }
+        
     </script>
 </head>
 <body>
@@ -126,7 +136,7 @@ if(isset($_POST['submit-btn'])){
         </div>
         <div id="rpass">
             <i class="fa fa-lock" aria-hidden="true"></i>
-            <input type="password" placeholder="Repeat Password" id="rpassL" name="rpsw" onblur ="checkP()" required><br><br>
+            <input type="password" placeholder="Repeat Password" id="rpassL" name="rpsw" onblur ="confirmPass()" required><br><br>
         </div>
         <button type="submit" id="button" name="submit-btn">SIGN UP</button>
     </form>
