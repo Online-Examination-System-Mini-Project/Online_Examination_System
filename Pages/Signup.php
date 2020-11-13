@@ -182,23 +182,24 @@ if(isset($_POST['submit-btn'])){
             var pass2 = document.getElementById("rpassL").value;
             if( pass1 != pass2){
                 document.getElementById("rpass").style.color = "red";
-                btn.disabled = true;
+                /*btn.disabled = true;*/
                 alert("Password not matched");
-                rps = 0;
+                /*rps = 0;*/
                 return false;
             }
             else if( pass2.length == 0){
                 return false;
             }
-            else{
+            /*else{
                 document.getElementById("rpass").style.color = "blue";
-                rps = 1;
-                if(ln == 1 && un == 1 && em == 1 && ps == 1 && fn == 1){
+               /* rps = 1;*/
+               /* if(ln == 1 && un == 1 && em == 1 && ps == 1 && fn == 1){
                     
                     
                     btn.disabled = false;
                 }
-            }
+            }*/
+            document.getElementById("rpass").style.color = "blue";
             return true;
         }
         
@@ -238,13 +239,13 @@ if(isset($_POST['submit-btn'])){
         </div>
         <div id="pass">
             <i class="fa fa-lock" aria-hidden="true"></i>
-            <input type="password" placeholder="Password" id="passL" name="psw" onblur ="checkP()" required><br>
+            <input type="password" placeholder="Password(8+ characters)" id="passL" name="psw" onblur ="checkP()" required><br>
         </div>
         <div id="rpass">
             <i class="fa fa-lock" aria-hidden="true"></i>
             <input type="password" placeholder="Repeat Password" id="rpassL" name="rpsw" onblur ="confirmPass()" required><br><br>
         </div>
-        <button type="submit" id="button" name="submit-btn">SIGN UP</button>
+        <button type="submit" id="button" onclick="confirmPass();" name="submit-btn">SIGN UP</button>
     </form>
        
 </body>
