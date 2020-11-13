@@ -61,8 +61,9 @@ if(isset($_POST['submit-btn'])){
             }
             else{
                 document.getElementById("firstname").style.color = "blue";
+                fn = 1;
                 if(ln == 1 && un == 1 && em == 1 && ps == 1 && rps == 1){
-                    fn = 1;
+                   
                     btn.disabled = false;
                 }
             }
@@ -85,9 +86,10 @@ if(isset($_POST['submit-btn'])){
             }
             else{
                 document.getElementById("lastname").style.color = "blue";
+                ln = 1;
                 
                 if(fn == 1 && un == 1 && em == 1 && ps == 1 && rps == 1){
-                    ln = 1;
+                    
                     
                     btn.disabled = false;
                 }
@@ -114,9 +116,10 @@ if(isset($_POST['submit-btn'])){
             }
             else{
                 document.getElementById("username").style.color = "blue";
+                un = 1;
                 
                 if(ln == 1 && fn == 1 && em == 1 && ps == 1 && rps == 1){
-                    un = 1;
+                   
                     
                     btn.disabled = false;
                 }
@@ -138,9 +141,10 @@ if(isset($_POST['submit-btn'])){
             }
             else{
                 document.getElementById("pass").style.color = "blue";
+                ps = 1;
                 
                 if(ln == 1 && un == 1 && em == 1 && fn == 1 && rps == 1){
-                    ps = 1;
+                    
                     
                     btn.disabled = false;
                 }
@@ -154,9 +158,9 @@ if(isset($_POST['submit-btn'])){
             if(emailSyntax.test(inputE)){
                 document.getElementById("Email").style.color = "blue";
                
-                
+                em = 1;
                 if(ln == 1 && un == 1 && rps == 1 && ps == 1 && fn == 1){
-                    em = 1;
+                   
                     
                     btn.disabled = false;
                 }
@@ -188,9 +192,9 @@ if(isset($_POST['submit-btn'])){
             }
             else{
                 document.getElementById("rpass").style.color = "blue";
-                
+                rps = 1;
                 if(ln == 1 && un == 1 && em == 1 && ps == 1 && fn == 1){
-                    rps = 1;
+                    
                     
                     btn.disabled = false;
                 }
