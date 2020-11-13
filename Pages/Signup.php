@@ -38,11 +38,21 @@ if(isset($_POST['submit-btn'])){
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
-       
+        function checkFName(){
+            var namev = document.getElementById("fname").value;
+            var wrongsyn1 = /\W/;
+            var wrongsyn2 = /^.*[0-9]+.*$/;
+            if( wrongsyn1.test(namev) || wrongsyn2.test(namev)){
+                alert("Please Enter Valid First Name");
+                return false;
+            }
+            return true;
+
+        }
         function check(){
             var nameV = document.getElementById("name").value;
             var illegal = /\W/;
-            if(illegal.test(nameV)){
+            if(illegal.test(nameV) ){
                 alert("Please Enter Valid Username");
                 return false;
             }
@@ -83,11 +93,11 @@ if(isset($_POST['submit-btn'])){
         <h1>Sign up</h1>
     </div>
     <form id="Login" method="POST">
-        <div id="fname">
+        <div id="firstname">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <input type="text" placeholder="First Name" id="fname" name="fname" onblur="check()" required>
+            <input type="text" placeholder="First Name" id="fname" name="fname" onblur="checkFName()" required>
         </div>
-        <div id="lname">
+        <div id="lastname">
             <i class="fa fa-user" aria-hidden="true"></i>
             <input type="text" placeholder="Last Name" id="lname" name="lname" onblur="check()" required>
         </div>
