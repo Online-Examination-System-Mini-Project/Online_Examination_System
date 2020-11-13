@@ -31,27 +31,46 @@ if(isset($_POST['sbt-btn'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALogin</title>
+    <title>Login(SuperAdmin)</title>
     <link rel="stylesheet" href="../css/Alogin.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
        
-        function check(){
+       function check(){
+            
+            var button = document.getElementById("button");
             var nameV = document.getElementById("name").value;
-            if( nameV.length == 0){
-                alert("Please Enter the Valid Username");
+            var illegal = /\W/;
+            if(illegal.test(nameV)){
+                alert("Please Enter Valid Username");
+                document.getElementById("username").style.color = "red";
                 return false;
             }
-            return true;
+            else if( nameV.length ==0){
+                return false;
+            }
+            else{
+                document.getElementById("username").style.color = "blue";
+            
+            }
+            
         }
         function checkP(){
+            var button = document.getElementById("button");
             var nameP = document.getElementById("passL").value;
-            if( nameP.length == 0){
-                alert("Please Enter the Valid Password");
+            if( nameP.length<8 && nameP.length!=0){
+                document.getElementById("pass").style.color = "red";
+                alert("Password Length required is atleast 8");
                 return false;
             }
-            return true;
+            else if( nameP.length ==0){
+                return false;
+            }
+            else{
+                document.getElementById("pass").style.color = "blue";
+            
+            }
         }
     </script>
 </head>
@@ -77,7 +96,7 @@ if(isset($_POST['sbt-btn'])){
         </div>
         <div id="pass">
             <i class="fa fa-lock" aria-hidden="true"></i>
-            <input type="password" placeholder="Password" id="passL" name="password" onblur ="checkp()" required><br><br>
+            <input type="password" placeholder="Password" id="passL" name="password" onblur ="checkP()" required><br><br>
         </div>
         <button type="submit" id="button" name="sbt-btn">LOGIN</button>
     </form>
