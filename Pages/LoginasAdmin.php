@@ -38,16 +38,17 @@ if(isset($_POST['sbt-btn'])){
        
         function check(){
             var nameV = document.getElementById("name").value;
-            if( nameV.length == 0){
-                alert("Please Enter the Valid Username");
+            var illegal = /\W/;
+            if(illegal.test(nameV)){
+                alert("Please Enter Valid Username");
                 return false;
             }
             return true;
         }
         function checkP(){
             var nameP = document.getElementById("passL").value;
-            if( nameP.length == 0){
-                alert("Please Enter the Valid Password");
+            if( nameP.length != 0 && name.length<8){
+                alert("Password Length requires is atleast 8");
                 return false;
             }
             return true;
@@ -72,7 +73,7 @@ if(isset($_POST['sbt-btn'])){
     <form id="Login" method="POST">
         <div id="username">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <input type="text" placeholder="Username" id="name" name="admin_name" onblur="check()" required>
+            <input type="text" placeholder="Username" id="name" name="admin_name" onSumbit="check()" required>
         </div>
         <div id="pass">
             <i class="fa fa-lock" aria-hidden="true"></i>
