@@ -13,7 +13,7 @@ if(isset($_POST['sbt-btn'])){
             if($row['pasword'] == $password){
                 $found_data = true;
                 $email=$row['email'];
-                $_SESSION["email"] = $email;
+                $_SESSION['email'] = $email;
                 header("Location: http://localhost/Online_Examination_System/Pages/Teacher_Dashboard.php");
             }
         }

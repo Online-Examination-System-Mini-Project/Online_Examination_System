@@ -10,8 +10,9 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
     $time = $_POST['time'];
     $tag = $_POST['tag'];
     $desc = $_POST['desc'];
+    $creatorsemail=$_GET['email'];
     $id=uniqid();
-    $q3=mysqli_query($conn,"INSERT INTO quiz(eid,title,sahi,wrong,total,time,intro,tag,date) VALUES  ('$id','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW())");
+    $q3=mysqli_query($conn,"INSERT INTO quiz(eid,title,creatorsemail,sahi,wrong,total,time,intro,tag,date) VALUES  ('$id','$name' ,'$creatorsemail', '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW())");
     
     header("Location: Teacher_Dashboard.php?q=4&step=2&eid=$id&n=$total");
     }
@@ -26,8 +27,9 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       $time = $_POST['time'];
       $tag = $_POST['tag'];
       $desc = $_POST['desc'];
+      $creatorsemail=$_GET['email'];
       $id=uniqid();
-      $q3=mysqli_query($conn,"INSERT INTO quiz(eid,title,sahi,wrong,total,time,intro,tag,date) VALUES  ('$id','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW())");
+      $q3=mysqli_query($conn,"INSERT INTO quiz(eid,title,creatorsemail,sahi,wrong,total,time,intro,tag,date) VALUES  ('$id','$name' , '$creatorsemail','$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW())");
       
       header("Location: SuperAdmin_Dashboard.php?q=4&step=2&eid=$id&n=$total");
       }

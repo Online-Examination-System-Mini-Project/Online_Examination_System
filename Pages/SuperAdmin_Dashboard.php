@@ -166,7 +166,7 @@
             <span class="title1" style="margin-left:40%;font-size:30px;"><b><center>Enter Quiz Details</b><center></span><br /><br />
             <div class="col-md-3"></div>
             <div class="col-md-6">
-            <form class="form-horizontal title1" name="form" action="update.php?q=addquizbysuperadmin"  method="POST">
+            <form class="form-horizontal title1" name="form" action="update.php?q=addquizbysuperadmin&email='.$email.'"  method="POST">
             <fieldset>
 
 

@@ -58,7 +58,7 @@
         $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
         if(@$_GET['q']== 0) 
         {
-        $result = mysqli_query($conn,"SELECT * FROM quiz") or die('Error');
+        $result = mysqli_query($conn,"SELECT * FROM quiz where creatorsemail='$email'") or die('Error');
         echo '<center><h2 style="color:blue;"><b>List of Quizzes<b></h2><center>';
         echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
         <tr><td><b>S.N.</b></td><td><b>Title</b></td><td><b>Total Marks</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td></tr>';
@@ -109,7 +109,7 @@
             <span class="title1" style="margin-left:40%;font-size:30px;"><b><center>Enter Quiz Details</b><center></span><br /><br />
             <div class="col-md-3"></div>
             <div class="col-md-6">
-            <form class="form-horizontal title1" name="form" action="update.php?q=addquiz"  method="POST">
+            <form class="form-horizontal title1" name="form" action="update.php?q=addquiz&email='.$email.'"  method="POST">
             <fieldset>
 
 
@@ -193,7 +193,7 @@
             <!--remove quiz-->
             <?php if(@$_GET['q']==5) {
 
-            $result = mysqli_query($conn,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+            $result = mysqli_query($conn,"SELECT * FROM quiz where creatorsemail='$email' ORDER BY date DESC") or die('Error');
             echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
             <tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
             $c=1;
