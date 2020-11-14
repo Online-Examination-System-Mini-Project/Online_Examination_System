@@ -30,6 +30,7 @@ if(isset($_POST['submit-btn'])){
         $sql1 = "Insert Into users(fname,lname,userName,email,pasword) VALUES ('{$stu_fname}','{$stu_lname}','{$stu_uname}','{$stu_email}','{$stu_psw}')";
         $result1 = mysqli_query($conn,$sql1) or die("Query Unsucessful.");
         echo "<script>alert('Your data is uploaded sucessfully.')</script>";
+        header("Location:Login.php");
     }
     mysqli_close($conn);
 }
