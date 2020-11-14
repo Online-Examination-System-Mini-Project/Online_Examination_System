@@ -51,7 +51,6 @@ if(isset($_POST['submit-btn'])){
             var wrongsyn2 = /^.*[0-9]+.*$/;
             if( wrongsyn1.test(namev) || wrongsyn2.test(namev)){
                 document.getElementById("firstname").style.color = "red";
-                btn.disabled = true;
                 fn = 0;
                 alert("Please Enter Valid First Name");
                 return false;
@@ -62,13 +61,12 @@ if(isset($_POST['submit-btn'])){
             else{
                 document.getElementById("firstname").style.color = "blue";
                 fn = 1;
-                if(ln == 1 && un == 1 && em == 1 && ps == 1 && rps == 1){
-                   
-                    btn.disabled = false;
-                }
             }
             return true;
+        
         }
+
+
         function checkLName(){
             var btn = document.getElementById("button");
             var namev = document.getElementById("lname").value;
@@ -76,7 +74,6 @@ if(isset($_POST['submit-btn'])){
             var wrongsyn2 = /^.*[0-9]+.*$/;
             if( wrongsyn1.test(namev) || wrongsyn2.test(namev)){
                 document.getElementById("lastname").style.color = "red";
-                btn.disabled = true;
                 alert("Please Enter Valid Last Name");
                 ln = 0;
                 return false;
@@ -87,13 +84,6 @@ if(isset($_POST['submit-btn'])){
             else{
                 document.getElementById("lastname").style.color = "blue";
                 ln = 1;
-                
-                if(fn == 1 && un == 1 && em == 1 && ps == 1 && rps == 1){
-                    
-                    
-                    btn.disabled = false;
-                }
-                
 
             }
             return true;
@@ -105,7 +95,6 @@ if(isset($_POST['submit-btn'])){
             var illegal = /\W/;
             if(illegal.test(nameV) ){
                 document.getElementById("username").style.color = "red";
-                btn.disabled = true;
                 alert("Please Enter Valid Username");
                 
                 un = 0;
@@ -117,12 +106,7 @@ if(isset($_POST['submit-btn'])){
             else{
                 document.getElementById("username").style.color = "blue";
                 un = 1;
-                
-                if(ln == 1 && fn == 1 && em == 1 && ps == 1 && rps == 1){
-                   
-                    
-                    btn.disabled = false;
-                }
+            
             }
             return true;
         }
@@ -131,7 +115,6 @@ if(isset($_POST['submit-btn'])){
             var nameP = document.getElementById("passL").value;
             if( nameP.length<8 && nameP.length!=0){
                 document.getElementById("pass").style.color = "red";
-                btn.disabled = true;
                 alert("Password Length required is atleast 8");
                 ps = 0;
                 return false;
@@ -142,12 +125,6 @@ if(isset($_POST['submit-btn'])){
             else{
                 document.getElementById("pass").style.color = "blue";
                 ps = 1;
-                
-                if(ln == 1 && un == 1 && em == 1 && fn == 1 && rps == 1){
-                    
-                    
-                    btn.disabled = false;
-                }
             }
             return true;
         }
@@ -159,11 +136,6 @@ if(isset($_POST['submit-btn'])){
                 document.getElementById("Email").style.color = "blue";
                
                 em = 1;
-                if(ln == 1 && un == 1 && rps == 1 && ps == 1 && fn == 1){
-                   
-                    
-                    btn.disabled = false;
-                }
         
             }
             else if( inputE.length == 0){
@@ -171,38 +143,39 @@ if(isset($_POST['submit-btn'])){
             }
             else{
                 document.getElementById("Email").style.color = "red";
-                btn.disabled = true;
                 em = 0;
                 alert("Please Enter valid Email");
             }
          }
-        function confirmPass(){
+        window.setInterval(function confirmPass(){
             var btn = document.getElementById("button");
             var pass1 = document.getElementById("passL").value;
             var pass2 = document.getElementById("rpassL").value;
             if( pass1 != pass2){
                 document.getElementById("rpass").style.color = "red";
-                /*btn.disabled = true;*/
-                alert("Password not matched");
-                /*rps = 0;*/
+                btn.disabled = true;
+
+                rps = 0;
                 return false;
             }
             else if( pass2.length == 0){
                 return false;
             }
-            /*else{
+            else{
                 document.getElementById("rpass").style.color = "blue";
-               /* rps = 1;*/
-               /* if(ln == 1 && un == 1 && em == 1 && ps == 1 && fn == 1){
-                    
-                    
-                    btn.disabled = false;
-                }
-            }*/
-            document.getElementById("rpass").style.color = "blue";
+                rps = 1;
+            }
             return true;
-        }
-        
+        },1000);
+        window.setInterval(function(){
+            var btn = document.getElementById("button");
+            if(ln == 1 && fn == 1 && em == 1 && ps == 1 && rps == 1 && un ==1){
+                btn.disabled  = false;;
+            }
+            else{
+                btn.disabled = true;
+            }
+        },1000);
     </script>
 </head>
 <body>
