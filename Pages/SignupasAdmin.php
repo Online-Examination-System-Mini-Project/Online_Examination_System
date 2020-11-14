@@ -30,6 +30,7 @@ if(isset($_POST['submit-btn'])){
         $sql1 = "Insert Into admins(adminName,email,pasword) VALUES ('{$admin_uname}','{$admin_email}','{$admin_psw}')";
         $result1 = mysqli_query($conn,$sql1) or die("Query Unsucessful.");
         echo "<script>alert('Your data is uploaded sucessfully.')</script>";
+        header("Location: LoginasAdmin.php");
     }
     mysqli_close($conn);
 }
