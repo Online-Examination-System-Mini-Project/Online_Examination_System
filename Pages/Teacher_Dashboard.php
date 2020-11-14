@@ -40,7 +40,7 @@
         <div id="nav">
             <h3>DashBoard</h3>
             <ul class="menu">
-                <li><a href="Teacher_Dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+                <li><?php if(@$_GET['q']==0) ?><a href="Teacher_Dashboard.php?q=0"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li><?php if(@$_GET['q']==2) ?><a href="Teacher_Dashboard.php?q=2">&nbsp;Ranking</a></li>
                 <li><a href="#">&nbsp;Quiz</a>
                     <ul class="dropdown-menu">
@@ -52,6 +52,29 @@
             </ul>
         </div>
         <div id="main-content">
+
+        <?php
+        //Show Quiz
+        $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+        if(@$_GET['q']== 0) 
+        {
+        $result = mysqli_query($conn,"SELECT * FROM quiz") or die('Error');
+        echo '<center><h2 style="color:blue;"><b>List of Quizzes<b></h2><center>';
+        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+        <tr><td><b>S.N.</b></td><td><b>Title</b></td><td><b>Total Marks</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td></tr>';
+        while($row = mysqli_fetch_array($result)) {
+            $eid=$row['eid'];
+            $title = $row['title'];
+            $total_marks = $row['total'];
+            $time = $row['time'];
+            $tag=$row['tag'];
+            $date=$row['date'];
+            echo '<tr><td>'.$eid.'</td>';
+            echo '<td>'.$title.'</td><td>'.$total_marks.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+        }
+        echo '</table></div></div>';
+        }
+        ?>
 
         <?php
         //ranking start

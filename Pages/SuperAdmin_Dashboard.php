@@ -105,7 +105,7 @@
             $tag=$row['tag'];
             $date=$row['date'];
             echo '<tr><td>'.$eid.'</td>';
-            echo '<td>'.$title.'</td><td>'.$total_marks.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+            echo '<td>'.$title.'</td><td>'.$total_marks.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquizbysuperadmin&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
         }
         echo '</table></div></div>';
         }
@@ -261,7 +261,7 @@
                 $time = $row['time'];
                 $eid = $row['eid'];
                 echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
-                <td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+                <td><b><a href="update.php?q=rmquizbysuperadmin&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
             }
             $c=0;
             echo '</table></div></div>';

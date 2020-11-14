@@ -142,6 +142,22 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       header("location:Teacher_Dashboard.php?q=5");
       }
 
+      //remove quiz by superadmin
+      if(@$_GET['q']== 'rmquizbysuperadmin') {
+        $eid=@$_GET['eid'];
+        $result = mysqli_query($conn,"SELECT * FROM questions WHERE eid='$eid' ") or die('Error');
+        while($row = mysqli_fetch_array($result)) {
+          $qid = $row['qid'];
+        $r1 = mysqli_query($conn,"DELETE FROM options WHERE qid='$qid'") or die('Error');
+        $r2 = mysqli_query($conn,"DELETE FROM answer WHERE qid='$qid' ") or die('Error');
+        }
+        $r3 = mysqli_query($conn,"DELETE FROM questions WHERE eid='$eid' ") or die('Error');
+        $r4 = mysqli_query($conn,"DELETE FROM quiz WHERE eid='$eid' ") or die('Error');
+        $r4 = mysqli_query($conn,"DELETE FROM history WHERE eid='$eid' ") or die('Error');
+        
+        header("location:SuperAdmin_Dashboard.php?q=5");
+        }
+
       //remove admin
       if(@$_GET['q']== 'rmadmin') {
       $id=@$_GET['id'];
