@@ -17,6 +17,11 @@ if(isset($_POST['submit-btn'])){
     }
     $c=$c+1;
     while($row=mysqli_fetch_assoc($result)){
+        if($row['adminName'] == $admin_uname){
+            echo "<script>alert('Already have a account with this user Name')</script>";
+            $not_registered = false;
+            break;
+        }
         if($row['email'] == $admin_email){
             echo "<script>alert('This email is already registered')</script>";
             $not_registered = false;
@@ -137,7 +142,7 @@ if(isset($_POST['submit-btn'])){
         function EmailChecker(){
             var btn = document.getElementById("button");
             var inputE= document.getElementById("mail").value;
-            var emailSyntax= /^.+@gmail.com$/;
+            var emailSyntax= /^.+@.+$/;
             if(emailSyntax.test(inputE)){
                 document.getElementById("Email").style.color = "blue";
                

@@ -61,7 +61,7 @@
         $result = mysqli_query($conn,"SELECT * FROM quiz where creatorsemail='$email'") or die('Error');
         echo '<center><h2 style="color:blue;"><b>List of Quizzes<b></h2><center>';
         echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-        <tr><td><b>S.N.</b></td><td><b>Title</b></td><td><b>Total Marks</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td></tr>';
+        <tr><td><b>ID</b></td><td><b>Title</b></td><td><b>Total Marks</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td></tr>';
         while($row = mysqli_fetch_array($result)) {
             $eid=$row['eid'];
             $title = $row['title'];
