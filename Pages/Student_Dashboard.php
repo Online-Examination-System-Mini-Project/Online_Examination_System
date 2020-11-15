@@ -19,16 +19,6 @@
     {echo'<script>alert("'.@$_GET['w'].'");</script>';}
     ?>
     <!--alert message end-->
-    <style>
-    #timer{
-        border:5px solid green;
-        height:80px;
-        width:150px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-    </style>
     <script language="javascript">
         var Timer;
         var TotalSeconds;
@@ -169,7 +159,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         $total=@$_GET['t'];
         $time=$_GET['time'];
         $q=mysqli_query($conn,"SELECT * FROM questions WHERE eid='$eid' AND sn='$sn' " );
-        echo '<div id="timer"></div>';
+        echo '<div id="timer" style="color:white; background-image: linear-gradient(to right, rgb(21, 208, 241), rgb(76, 45, 252), rgb(116, 6, 126));width:150px;height:75px;display:flex;justify-content:center;align-items:center;border:2px solid white;font-weight:bold;"></div>';
         echo '<script type="text/javascript">window.onload = CreateTimer("timer", '.$time.');</script>';
         echo '<div class="panel" style="margin:5%">';
         while($row=mysqli_fetch_array($q) )
