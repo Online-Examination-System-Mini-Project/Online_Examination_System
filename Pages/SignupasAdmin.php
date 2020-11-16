@@ -177,7 +177,7 @@ if(isset($_POST['submit-btn'])){
         window.setInterval(function(){
             var btn = document.getElementById("button");
             if(ln == 1 && fn == 1 && em == 1 && ps == 1 && rps == 1 && un ==1){
-                btn.disabled  = false;;
+                btn.disabled  = false;
             }
             else{
                 btn.disabled = true;
@@ -219,7 +219,7 @@ if(isset($_POST['submit-btn'])){
         </div>
         <div id="pass">
             <i class="fa fa-lock" aria-hidden="true"></i>
-            <input type="password" placeholder="Password" id="passL" name="psw" onblur ="checkP()" required><br>
+            <input type="password" placeholder="Password (8+ characters)" id="passL" name="psw" onblur ="checkP()" required><br>
         </div>
         <div id="rpass">
             <i class="fa fa-lock" aria-hidden="true"></i>

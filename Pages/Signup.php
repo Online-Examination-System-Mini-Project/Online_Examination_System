@@ -176,7 +176,7 @@ if(isset($_POST['submit-btn'])){
         window.setInterval(function(){
             var btn = document.getElementById("button");
             if(ln == 1 && fn == 1 && em == 1 && ps == 1 && rps == 1 && un ==1){
-                btn.disabled  = false;;
+                btn.disabled  = false;
             }
             else{
                 btn.disabled = true;
