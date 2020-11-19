@@ -61,16 +61,16 @@
         $result = mysqli_query($conn,"SELECT * FROM quiz where creatorsemail='$email'") or die('Error');
         echo '<center><h2 style="color:blue;"><b>List of Quizzes<b></h2><center>';
         echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-        <tr><td><b>ID</b></td><td><b>Title</b></td><td><b>Total Marks</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td></tr>';
+        <tr><td><b>ID</b></td><td><b>Title</b></td><td><b>Total Questions</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td></tr>';
         while($row = mysqli_fetch_array($result)) {
             $eid=$row['eid'];
             $title = $row['title'];
-            $total_marks = $row['total'];
+            $total_question = $row['total'];
             $time = $row['time'];
             $tag=$row['tag'];
             $date=$row['date'];
             echo '<tr><td>'.$eid.'</td>';
-            echo '<td>'.$title.'</td><td>'.$total_marks.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+            echo '<td>'.$title.'</td><td>'.$total_question.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
         }
         echo '</table></div></div>';
         }

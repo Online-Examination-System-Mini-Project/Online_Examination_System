@@ -1,3 +1,11 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+  </head>
+  <body>
 <?php
 $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
 //add quiz
@@ -237,9 +245,9 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       if($sn != $total)
       {
       $sn++;
-      header("location:Student_Dashboard.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total&time=$time")or die('Error152');
+      header("location:exam.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total&time=$time")or die('Error152');
       }
-      else if( $_SESSION['key']!='sunny7785068889')
+      else if(true)
       {
       $q=mysqli_query($conn,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error156');
       while($row=mysqli_fetch_array($q) )
@@ -261,11 +269,11 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       $sun=$s+$sun;
       $q=mysqli_query($conn,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
       }
-      header("location:Student_Dashboard.php?username=$username&email=$email&q=result&eid=$eid");
+      header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
       }
       else
       {
-      header("location:Student_Dashboard.php?username=$username&email=$email&q=result&eid=$eid");
+      header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
       }
       }
       
@@ -277,6 +285,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       $username=$_GET['username'];
       $email=$_GET['email'];
       $time=$_GET['time'];
+      $s=0;
       $q=mysqli_query($conn,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error156');
       while($row=mysqli_fetch_array($q) )
       {
@@ -290,8 +299,10 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       }
       $sun=$sun-$s;
       $q=mysqli_query($conn,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
-      header("location:Student_Dashboard.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=1&t=$t&time=$time");
+      header("location:Student_Dashboard.php?username=$username&email=$email&q=1");
       }
       
     
 ?>
+</body>
+</html>

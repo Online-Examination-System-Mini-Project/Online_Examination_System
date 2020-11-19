@@ -110,7 +110,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
             $rowcount=mysqli_num_rows($q12);	
             if($rowcount == 0){
                 echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
-                <td><b><a href="Student_Dashboard.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
+                <td><b><a href="exam.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
             }
             else
             {
@@ -139,12 +139,15 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         $rowcount=mysqli_num_rows($q12);	
         if($rowcount == 0){
             echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
-            <td><b><a href="Student_Dashboard.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
+            <td onclick="quizstart()" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></td></tr>';
+            echo'<script type="text/javascript">function quizstart(){window.open("exam.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'","MyWindow","width=3000px,height=3000px");}</script>';
         }
         else
         {
         echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
-            <td><b><a href="update.php?username='.$user_name.'&email='.$email.'&q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Restart</b></span></a></b></td></tr>';
+            <td onclick="quizstart()"><b><a href="update.php?username='.$user_name.'&email='.$email.'&q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Restart</b></span></a></b></td></tr>';
+        echo'<script type="text/javascript">function quizstart(){window.open("exam.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'","MyWindow","width=3000px,height=3000px");}</script>';
+
         }
         }
         $c=0;
