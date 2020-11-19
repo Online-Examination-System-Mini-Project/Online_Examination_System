@@ -45,6 +45,8 @@ textarea::placeholder{
 }
 input:focus{
     background-color:white;
+    box-shadow: 0 0 3pt 2pt skyblue;
+    outline: none;
 }
 form{
     width: 40%;
