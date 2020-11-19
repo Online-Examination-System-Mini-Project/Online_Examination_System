@@ -77,12 +77,19 @@ if(isset($_POST['sbt-btn'])){
 <body>
     <div id="contanier">
         <div id="header">
+        <input type="checkbox" id="chk" />
+        <label for="chk" class="show-btn">
+        <i class="fa fa-bars"></i>
+        </label>
             <div id="logo"><img src="../images/1.png"></div>
             <ul class="menu">
                 <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
                 <li><a href="Aboutus.html"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;ABOUT US</a></li>
                 <li><a href="Contact-Us.html"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
                 <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a></li>
+                <label for="chk" class="hide-btn">
+                    <i class="fa fa-times"></i>
+                </label>
             </ul>
         </div>
     </div>
