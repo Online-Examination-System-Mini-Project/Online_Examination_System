@@ -37,6 +37,7 @@ input{
 }
 textarea{
 border-radius: 20px;
+width: 82%;
 padding: 10px;
 font-size: 20px;
 }
@@ -59,9 +60,10 @@ button{
     padding: 15px;
     border:none;
     cursor: pointer;
-    width: 30%;
+    width: 40%;
     border-radius: 60px;
-    font-size: 25px;
+    font-size: 2vw;
+    margin-left: 20%;
 }
 button:hover{
     background-color:blanchedalmond;
