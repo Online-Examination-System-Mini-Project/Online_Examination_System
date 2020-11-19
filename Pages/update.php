@@ -277,32 +277,6 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       }
       }
       
-      //restart quiz
-      if(@$_GET['q']== 'quizre' && @$_GET['step']== 25 ) {
-      $eid=@$_GET['eid'];
-      $n=@$_GET['n'];
-      $t=@$_GET['t'];
-      $username=$_GET['username'];
-      $email=$_GET['email'];
-      $time=$_GET['time'];
-      $s=0;
-      $q=mysqli_query($conn,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error156');
-      while($row=mysqli_fetch_array($q) )
-      {
-      $s=$row['score'];
-      }
-      $q=mysqli_query($conn,"DELETE FROM `history` WHERE eid='$eid' AND email='$email' " )or die('Error184');
-      $q=mysqli_query($conn,"SELECT * FROM rank WHERE email='$email'" )or die('Error161');
-      while($row=mysqli_fetch_array($q) )
-      {
-      $sun=$row['score'];
-      }
-      $sun=$sun-$s;
-      $q=mysqli_query($conn,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
-      header("location:Student_Dashboard.php?username=$username&email=$email&q=1");
-      }
-      
-    
 ?>
 </body>
 </html>
