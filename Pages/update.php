@@ -277,6 +277,14 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       }
       }
       
+      //Edit userName
+      if($_GET['q']==0){
+        $email=$_GET['email'];
+        $username=$_GET['username'];
+        $newname=$_POST['newusername'];
+        $sql=mysqli_query($conn,"UPDATE users SET userName='$newname' WHERE email='$email'");
+        header("Location:Student_Dashboard.php?username=$newname&email=$email&q=1");
+      }
 ?>
 </body>
 </html>

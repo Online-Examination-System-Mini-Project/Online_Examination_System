@@ -36,7 +36,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
                 <div id="logo"><img src="../images/1.png"></div>
                 <div id="right-header1">
                     <a href="Signout.php?q=../index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign out</a>
-                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Hello, <?php echo $_GET['username'] ?></a>
+                    <a href="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=0"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Hello, <?php echo $_GET['username'] ?></a>
                 </div>
             </div>
         </div>
@@ -53,7 +53,15 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
             </ul>
         </div>
 
-        <?php if(@$_GET['q']==3){
+        <?php 
+        if($_GET['q']==0){
+            echo '<div class="main-content" style="margin:30%; margin-top:5%; background-color:white;padding:15px;" ><h3>Edit Form</h3><br><form method="POST" action="update.php?q=0&username='.$user_name.'&email='.$email.'">
+            <input id="newusername" name="newusername" placeholder="Enter New User Name" class="form-control input-md" type="text"><br><br>
+            <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Update" class="btn btn-primary"/>
+            </form></div>';
+        }
+
+        if(@$_GET['q']==3){
             $tag = $_POST['tag'];
             $result1 = mysqli_query($conn,"SELECT * FROM quiz WHERE tag='$tag'") or die('Error');
             echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
