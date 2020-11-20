@@ -1,13 +1,13 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update</title>
-  </head>
-  <body>
 <?php
 $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+//Edit userName
+if($_GET['q']==0){
+  $email=$_GET['email'];
+  $username=$_GET['username'];
+  $newname=$_POST['newusername'];
+  $sql=mysqli_query($conn,"UPDATE users SET userName='$newname' WHERE email='$email'");
+  header("Location:Student_Dashboard.php?username=$newname&email=$email&q=1");
+}
 //add quiz
     if($_GET['q'] == 'addquiz') {
     $name = $_POST['name'];
@@ -192,7 +192,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       $email=$_GET['email'];
       $username=$_GET['username'];
       $time=$_GET['time'];
-      $q=mysqli_query($conn,"SELECT * FROM answer WHERE qid='$qid' " );
+      $q=mysqli_query($conn,"SELECT * FROM answer WHERE qid='$qid'" );
       while($row=mysqli_fetch_array($q) )
       {
       $ansid=$row['ansid'];
@@ -276,15 +276,4 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
       header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
       }
       }
-      
-      //Edit userName
-      if($_GET['q']==0){
-        $email=$_GET['email'];
-        $username=$_GET['username'];
-        $newname=$_POST['newusername'];
-        $sql=mysqli_query($conn,"UPDATE users SET userName='$newname' WHERE email='$email'");
-        header("Location:Student_Dashboard.php?username=$newname&email=$email&q=1");
-      }
 ?>
-</body>
-</html>
