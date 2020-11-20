@@ -14,6 +14,44 @@
     <script src="../javascript/jquery.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"  type="text/javascript"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <!--alert message-->
+    <?php if(@$_GET['w'])
+    {echo'<script>alert("'.@$_GET['w'].'");</script>';}
+    ?>
+    <!--alert message end-->
+    <script language="javascript">
+        var Timer;
+        var TotalSeconds;
+
+        function CreateTimer(TimerID, Time) 
+        {
+            Timer = document.getElementById(TimerID);
+            TotalSeconds = Time;
+            UpdateTimer()
+            window.setTimeout("Tick()", 1000);
+        }
+
+        function Tick() 
+        {
+            TotalSeconds -= 1;
+            if(TotalSeconds ==-1)
+            {
+            document.getElementById("form2").submit();
+            // Show alert Plus redirect any other page
+            }
+        else
+            {
+            UpdateTimer()
+            window.setTimeout("Tick()", 1000);
+            }
+        }
+
+        function UpdateTimer() {
+            Timer.innerHTML = TotalSeconds;
+        }
+
+        
+    </script>
 </head>
 <?php
 $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
@@ -36,7 +74,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
                 <div id="logo"><img src="../images/1.png"></div>
                 <div id="right-header1">
                     <a href="Signout.php?q=../index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign out</a>
-                    <a href="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=0"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Hello, <?php echo $_GET['username'] ?></a>
+                    <a href="Student_Dashboard.php?username=<?php echo $user_name?>&email=<?php echo $email ?>&q=100"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Hello, <?php echo $_GET['username'] ?></a>
                 </div>
             </div>
         </div>
@@ -54,8 +92,8 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         </div>
 
         <?php 
-        if($_GET['q']==0){
-            echo '<div class="main-content" style="margin:30%; margin-top:5%; background-color:white;padding:15px;" ><h3>Edit Form</h3><br><form method="POST" action="update.php?q=0&username='.$user_name.'&email='.$email.'">
+        if($_GET['q']==100){
+            echo '<div class="main-content" style="margin:30%; margin-top:5%; background-color:white;padding:15px;" ><h3>Edit Form</h3><br><form method="POST" action="update.php?q=100&username='.$user_name.'&email='.$email.'">
             <input id="newusername" name="newusername" placeholder="Enter New User Name" class="form-control input-md" type="text"><br><br>
             <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Update" class="btn btn-primary"/>
             </form></div>';
@@ -77,8 +115,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
             $rowcount=mysqli_num_rows($q12);	
             if($rowcount == 0){
                 echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
-                <td onclick="quizstart()" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></td></tr>';
-                echo'<script type="text/javascript">function quizstart(){window.open("exam.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'","MyWindow","width=3000px,height=3000px");}</script>';
+                <td><a href="Student_Dashboard.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></td></tr>';
             }
             else{
                 echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
@@ -106,8 +143,7 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         $rowcount=mysqli_num_rows($q12);	
         if($rowcount == 0){
             echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
-            <td onclick="quizstart()" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></td></tr>';
-            echo'<script type="text/javascript">function quizstart(){window.open("exam.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'","MyWindow","width=3000px,height=3000px");}</script>';
+            <td><a href="Student_Dashboard.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'&time='.$time.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></td></tr>';
         }
         else{
             echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;sec</td>
@@ -117,6 +153,71 @@ $conn = mysqli_connect("localhost","root","","database") or die("Connection fail
         $c=0;
         echo '</table></div></div>';
         }?>
+
+        <!--quiz start-->
+        <?php
+        $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
+        $email=$_SESSION['email'];
+        $user_name=$_SESSION['username'];
+            if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {
+            $eid=@$_GET['eid'];
+            $sn=@$_GET['n'];
+            $total=@$_GET['t'];
+            $time=$_GET['time'];
+            $q=mysqli_query($conn,"SELECT * FROM questions WHERE eid='$eid' AND sn='$sn' " );
+            echo '<div id="timer" style="color:white; background-image: linear-gradient(to right, rgb(21, 208, 241), rgb(76, 45, 252), rgb(116, 6, 126));width:150px;height:75px;display:flex;justify-content:center;align-items:center;border:2px solid white;font-weight:bold;padding:0px;"></div>';
+            echo '<script type="text/javascript">window.onload = CreateTimer("timer", '.$time.');</script>';
+            echo '<div class="panel" style="margin:5%">';
+            while($row=mysqli_fetch_array($q) )
+            {
+            $qns=$row['qns'];
+            $qid=$row['qid'];
+            echo '<b>Question &nbsp;'.$sn.'&nbsp;::<br />'.$qns.'</b><br /><br />';
+
+            $q=mysqli_query($conn,"SELECT * FROM options WHERE qid='$qid' " );
+            echo '<form action="update.php?username='.$user_name.'&email='.$email.'&q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'&time='.$time.'" method="POST" name="form2" id="form2" class="form-horizontal">
+            <br />';
+
+            while($row=mysqli_fetch_array($q) )
+            {
+            $option=$row['option'];
+            $optionid=$row['optionid'];
+            echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br />';
+            }
+            echo'<br /><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Submit</button></form></div>';
+            }
+            }
+
+        //result display
+        if(@$_GET['q']== 'result' && @$_GET['eid']) 
+        {
+        $eid=@$_GET['eid'];
+        $q=mysqli_query($conn,"SELECT * FROM history WHERE eid='$eid' AND email='$email'" )or die('Error157');
+        echo  '<div class="panel">
+        <center><h1 class="title" style="color:#660033">Result</h1><center><br /><table class="table table-striped title1" style="font-size:20px;font-weight:1000;">';
+
+        while($row=mysqli_fetch_array($q) )
+        {
+        $s=$row['score'];
+        $w=$row['wrong'];
+        $r=$row['sahi'];
+        $qa=$row['level'];
+        echo '<tr style="color:#66CCFF"><td>Total Questions</td><td>'.$qa.'</td></tr>
+            <tr style="color:#99cc32"><td>right Answer&nbsp;<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td><td>'.$r.'</td></tr> 
+            <tr style="color:red"><td>Wrong Answer&nbsp;<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td><td>'.$w.'</td></tr>
+            <tr style="color:#66CCFF"><td>Score&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
+        }
+        $q=mysqli_query($conn,"SELECT * FROM rank WHERE  email='$email' " )or die('Error157');
+        while($row=mysqli_fetch_array($q) )
+        {
+        $s=$row['score'];
+        echo '<tr style="color:#990000"><td>Overall Score&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
+        }
+        echo '</table></div>';
+
+        }
+        ?>
+
 
         <?php
         //history start

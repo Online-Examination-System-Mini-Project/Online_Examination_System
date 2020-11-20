@@ -1,7 +1,7 @@
 <?php
 $conn = mysqli_connect("localhost","root","","database") or die("Connection failed");
 //Edit userName
-if($_GET['q']==0){
+if($_GET['q']==100){
   $email=$_GET['email'];
   $username=$_GET['username'];
   $newname=$_POST['newusername'];
@@ -245,7 +245,7 @@ if($_GET['q']==0){
       if($sn != $total)
       {
       $sn++;
-      header("location:exam.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total&time=$time")or die('Error152');
+      header("location:Student_Dashboard.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total&time=$time")or die('Error152');
       }
       else if(true)
       {
@@ -269,11 +269,11 @@ if($_GET['q']==0){
       $sun=$s+$sun;
       $q=mysqli_query($conn,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
       }
-      header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
+      header("location:Student_Dashboard.php?username=$username&email=$email&q=result&eid=$eid");
       }
       else
       {
-      header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
+      header("location:Student_Dashboard.php?username=$username&email=$email&q=result&eid=$eid");
       }
       }
 ?>
