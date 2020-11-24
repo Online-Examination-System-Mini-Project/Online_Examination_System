@@ -245,7 +245,7 @@ if($_GET['q']==100){
       if($sn != $total)
       {
       $sn++;
-      header("location:Student_Dashboard.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total&time=$time")or die('Error152');
+      header("location:exam.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total&time=$time")or die('Error152');
       }
       else if(true)
       {
@@ -269,11 +269,11 @@ if($_GET['q']==100){
       $sun=$s+$sun;
       $q=mysqli_query($conn,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
       }
-      header("location:Student_Dashboard.php?username=$username&email=$email&q=result&eid=$eid");
+      header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
       }
       else
       {
-      header("location:Student_Dashboard.php?username=$username&email=$email&q=result&eid=$eid");
+      header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
       }
       }
 ?>

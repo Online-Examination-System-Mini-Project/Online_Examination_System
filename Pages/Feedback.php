@@ -34,20 +34,12 @@ if(isset($_POST['submit-btn'])){
 <body>
     <div class="container">
         <div id="header">
-        <input type="checkbox" id="chk" />
-        <label for="chk" class="show-btn">
-        <i class="fa fa-bars"></i>
-        </label>
             <div id="logo"><img src="../images/1.png"></div>
             <ul class="menu">
                 <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
                 <li><a href="Contact-Us.html"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
                 <li><a href="PreLoginPage.html"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;LOGIN</a></li>
-                <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a>
-                <label for="chk" class="hide-btn">
-                    <i class="fa fa-times"></i>
-                </label>
-                </li>
+                <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a> </li>
             </ul>
         </div>
     </div>
