@@ -30,6 +30,13 @@ if(isset($_POST['submit-btn'])){
             alert("Thank you for your valuable feedback!");
         }
     </script>
+    <style>
+        .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+        </style>
 </head>
 <body>
     <div class="container">
@@ -39,7 +46,8 @@ if(isset($_POST['submit-btn'])){
                 <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a></li>
                 <li><a href="Contact-Us.html"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;CONTACT</a></li>
                 <li><a href="PreLoginPage.html"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;LOGIN</a></li>
-                <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a> </li>
+                <li><a href="PreSignupPage.html"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;SIGN UP</a>
+                </li>
             </ul>
         </div>
     </div>
