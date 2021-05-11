@@ -74,7 +74,7 @@ CREATE TABLE `feedback` (
 
 CREATE TABLE `history` (
   `email` varchar(50) NOT NULL,
-  `eid` text NOT NULL UNIQUE,
+  `eid` text NOT NULL,
   `score` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   `sahi` int(11) NOT NULL,

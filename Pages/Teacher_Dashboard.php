@@ -70,7 +70,7 @@
             $tag=$row['tag'];
             $date=$row['date'];
             echo '<tr><td>'.$eid.'</td>';
-            echo '<td>'.$title.'</td><td>'.$total_question.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td><td><b><a href="../Pages/Teacher_Dashboard.php?q=20&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Result</b></span></a></b></td></tr>';
+            echo '<td>'.$title.'</td><td>'.$total_question.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="../Pages/Teacher_Dashboard.php?q=20&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Result</b></span></a></b></td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
         }
         echo '</table></div></div>';
         }

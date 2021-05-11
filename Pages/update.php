@@ -192,6 +192,17 @@ if($_GET['q']==100){
       $email=$_GET['email'];
       $username=$_GET['username'];
       $time=$_GET['time'];
+      $flag = 1;
+      $z=mysqli_query($conn,"SELECT email,eid FROM history");
+      while($row=mysqli_fetch_array($z)){
+        $hist_email = $row['email'];
+        $hist_eid = $row['eid'];
+        if($sn == 1 && $hist_eid == $eid && $hist_email == $email){
+          $flag = 0;
+          break;
+        }
+      }
+    if($flag){
       $q=mysqli_query($conn,"SELECT * FROM answer WHERE qid='$qid'" );
       while($row=mysqli_fetch_array($q) )
       {
@@ -280,4 +291,5 @@ if($_GET['q']==100){
       header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
       }
       }
+    }
 ?>
