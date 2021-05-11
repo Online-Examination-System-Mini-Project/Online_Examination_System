@@ -24,8 +24,6 @@ create table admins(
   pasword varchar(500) NOT NULL
 );
 
-INSERT INTO `admins` (`adminId`, `adminName`, `email`, `pasword`) VALUES ('1', 'Ramballabh', 'ramavpk@gmail.com', 'ramballabh');
-
 create table superadmin(
   sadminId int NOT NULL,
   sadminName varchar(30) NOT NULL,
@@ -76,7 +74,7 @@ CREATE TABLE `feedback` (
 
 CREATE TABLE `history` (
   `email` varchar(50) NOT NULL,
-  `eid` text NOT NULL,
+  `eid` text NOT NULL UNIQUE,
   `score` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   `sahi` int(11) NOT NULL,

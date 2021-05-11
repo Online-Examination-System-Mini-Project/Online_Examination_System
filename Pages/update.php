@@ -197,6 +197,7 @@ if($_GET['q']==100){
       {
       $ansid=$row['ansid'];
       }
+      $count = 0;
       if($ans == $ansid)
       {
       $q=mysqli_query($conn,"SELECT * FROM quiz WHERE eid='$eid' " );
@@ -217,8 +218,8 @@ if($_GET['q']==100){
       }
       $r++;
       $s=$s+$sahi;
+      $count = $sahi;
       $q=mysqli_query($conn,"UPDATE `history` SET `score`=$s,`level`=$sn,`sahi`=$r, date= NOW()  WHERE  email = '$email' AND eid = '$eid'")or die('Error124');
-      
       } 
       else
       {
@@ -240,14 +241,10 @@ if($_GET['q']==100){
       }
       $w++;
       $s=$s-$wrong;
+      $count = -$wrong;
       $q=mysqli_query($conn,"UPDATE `history` SET `score`=$s,`level`=$sn,`wrong`=$w, date=NOW() WHERE  email = '$email' AND eid = '$eid'")or die('Error147');
       }
-      if($sn != $total)
-      {
-      $sn++;
-      header("location:exam.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total&time=$time")or die('Error152');
-      }
-      else if(true)
+      if($sn >= 1)
       {
       $q=mysqli_query($conn,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error156');
       while($row=mysqli_fetch_array($q) )
@@ -266,9 +263,16 @@ if($_GET['q']==100){
       {
       $sun=$row['score'];
       }
-      $sun=$s+$sun;
+      $sun=$sun+$count;
       $q=mysqli_query($conn,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
       }
+      }
+      if($sn != $total)
+      {
+      $sn++;
+      header("location:exam.php?username=$username&email=$email&q=quiz&step=2&eid=$eid&n=$sn&t=$total&time=$time")or die('Error152');
+      }
+      else if(true){
       header("location:exam.php?username=$username&email=$email&q=result&eid=$eid");
       }
       else

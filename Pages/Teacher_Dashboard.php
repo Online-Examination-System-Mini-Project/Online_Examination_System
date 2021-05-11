@@ -61,7 +61,7 @@
         $result = mysqli_query($conn,"SELECT * FROM quiz where creatorsemail='$email'") or die('Error');
         echo '<center><h2 style="color:blue;"><b>List of Quizzes<b></h2><center>';
         echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-        <tr><td><b>ID</b></td><td><b>Title</b></td><td><b>Total Questions</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td></tr>';
+        <tr><td><b>ID</b></td><td><b>Title</b></td><td><b>Total Questions</b></td><td><b>Time</b></td><td><b>Tag</b></td><td><b>Date</b></td><td></td><td></td><td></td></tr>';
         while($row = mysqli_fetch_array($result)) {
             $eid=$row['eid'];
             $title = $row['title'];
@@ -70,7 +70,7 @@
             $tag=$row['tag'];
             $date=$row['date'];
             echo '<tr><td>'.$eid.'</td>';
-            echo '<td>'.$title.'</td><td>'.$total_question.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td></tr>';
+            echo '<td>'.$title.'</td><td>'.$total_question.'</td><td>'.$time.'</td><td>'.$tag.'</td><td>'.$date.'</td><td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></td><td><b><a href="../Pages/Teacher_Dashboard.php?q=20&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Result</b></span></a></b></td></tr>';
         }
         echo '</table></div></div>';
         }
@@ -282,6 +282,36 @@
 
             </fieldset>
             </form></div>';
+            }
+            ?>
+
+            <?php
+            if(@$_GET['q']== 20){
+            $eid = $_GET['eid'];
+            $q=mysqli_query($conn,"SELECT * FROM history WHERE eid='$eid' ORDER BY score DESC " )or die('Error197');
+            echo  '<div class="panel title">
+            <table class="table table-striped title1" >
+            <tr style="color:red"><td><b>S.N.</b></td><td><b>Student Name</b></td><td><b>Question Solved</b></td><td><b>Right</b></td><td><b>Wrong<b></td><td><b>Score</b></td><td><b>Date</b></td>';
+            $c=0;
+            while($row=mysqli_fetch_array($q) )
+            {
+            $eid=$row['eid'];
+            $s=$row['score'];
+            $w=$row['wrong'];
+            $r=$row['sahi'];
+            $qa=$row['level'];
+            $date=$row['date'];
+            $student_email=$row['email'];
+            $q23=mysqli_query($conn,"SELECT fname,lname FROM users WHERE  email='$student_email' " )or die('Error208');
+            while($row=mysqli_fetch_array($q23) )
+            {
+            $fname=$row['fname'];
+            $lname=$row['lname'];
+            }
+            $c++;
+            echo '<tr><td>'.$c.'</td><td>'.$fname.' '.$lname.'</td><td>'.$qa.'</td><td>'.$r.'</td><td>'.$w.'</td><td>'.$s.'</td><td>'.$date.'</td></tr>';
+            }
+            echo'</table></div>';
             }
             ?>
         </div>
